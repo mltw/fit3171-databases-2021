@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="CBB1D1F0-D5C0-0968-8043-C5E416585DB9" name="PROD_CATEGORY">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-16 08:39:40 UTC</createdTime>
+<ownerDesignName>customerorders</ownerDesignName>
+<engineerTo>
+<item key="4F6F62BE-B5E5-14FD-6711-206BDD8E73E1" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="pcat_id" id="2806E4B2-4FE3-BA65-501B-29CC5A6FE09F">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-16 08:39:53 UTC</createdTime>
+<ownerDesignName>customerorders</ownerDesignName>
+<engineerTo>
+<item key="4F6F62BE-B5E5-14FD-6711-206BDD8E73E1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pcat_name" id="D0832198-BF9F-943F-AC76-3B12C45F56C5">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-16 08:40:12 UTC</createdTime>
+<ownerDesignName>customerorders</ownerDesignName>
+<engineerTo>
+<item key="4F6F62BE-B5E5-14FD-6711-206BDD8E73E1" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="614EFA9E-02EA-9ECE-F2C3-21490A6B2430" name="PROD_CATEGORY PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-16 08:40:11 UTC</createdTime>
+<ownerDesignName>customerorders</ownerDesignName>
+<engineerTo>
+<item key="4F6F62BE-B5E5-14FD-6711-206BDD8E73E1" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2806E4B2-4FE3-BA65-501B-29CC5A6FE09F</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="75FF9095-5FDC-4E1A-AFDF-5077B8CDF534" name="un_pcat_name">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-16 09:12:35 UTC</createdTime>
+<ownerDesignName>customerorders</ownerDesignName>
+<engineerTo>
+<item key="4F6F62BE-B5E5-14FD-6711-206BDD8E73E1" value="true"/>
+</engineerTo>
+<newElementsIDs>D0832198-BF9F-943F-AC76-3B12C45F56C5</newElementsIDs>
+<usedAttributes>
+<attributeRef>D0832198-BF9F-943F-AC76-3B12C45F56C5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
