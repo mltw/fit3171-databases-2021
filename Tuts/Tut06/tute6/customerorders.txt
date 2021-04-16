@@ -1,53 +1,28 @@
 SQL> 
 SQL> DROP TABLE customer CASCADE CONSTRAINTS;
 
-Error starting at line : 9 in command -
-DROP TABLE customer CASCADE CONSTRAINTS
-Error report -
-ORA-00942: table or view does not exist
-00942. 00000 -  "table or view does not exist"
-*Cause:    
-*Action:
+Table CUSTOMER dropped.
+
 SQL> 
 SQL> DROP TABLE orderline CASCADE CONSTRAINTS;
 
-Error starting at line : 11 in command -
-DROP TABLE orderline CASCADE CONSTRAINTS
-Error report -
-ORA-00942: table or view does not exist
-00942. 00000 -  "table or view does not exist"
-*Cause:    
-*Action:
+Table ORDERLINE dropped.
+
 SQL> 
 SQL> DROP TABLE orders CASCADE CONSTRAINTS;
 
-Error starting at line : 13 in command -
-DROP TABLE orders CASCADE CONSTRAINTS
-Error report -
-ORA-00942: table or view does not exist
-00942. 00000 -  "table or view does not exist"
-*Cause:    
-*Action:
+Table ORDERS dropped.
+
 SQL> 
 SQL> DROP TABLE prod_category CASCADE CONSTRAINTS;
 
-Error starting at line : 15 in command -
-DROP TABLE prod_category CASCADE CONSTRAINTS
-Error report -
-ORA-00942: table or view does not exist
-00942. 00000 -  "table or view does not exist"
-*Cause:    
-*Action:
+Table PROD_CATEGORY dropped.
+
 SQL> 
 SQL> DROP TABLE product CASCADE CONSTRAINTS;
 
-Error starting at line : 17 in command -
-DROP TABLE product CASCADE CONSTRAINTS
-Error report -
-ORA-00942: table or view does not exist
-00942. 00000 -  "table or view does not exist"
-*Cause:    
-*Action:
+Table PRODUCT dropped.
+
 SQL> 
 SQL> -- predefined type, no DDL - MDSYS.SDO_GEOMETRY
 SQL> 
