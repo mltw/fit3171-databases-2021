@@ -1,0 +1,185 @@
+SQL> 
+SQL> /*
+SQL>Databases Week 7 Tutorial Sample Solution
+SQL>week7_schema_alter.sql
+SQL>
+SQL>Author:
+SQL>
+SQL>*/
+SQL> 
+SQL> -- 7.1
+SQL> -- DDL for Student-Unit-Enrolment model (using ALTER TABLE)
+SQL> --
+SQL> 
+SQL> --
+SQL> -- Place DROP commands at head of schema file
+SQL> --
+SQL> drop table enrolment purge;
+
+Table ENROLMENT dropped.
+
+SQL> drop table student purge;
+
+Table STUDENT dropped.
+
+SQL> drop table unit purge;
+
+Table UNIT dropped.
+
+SQL> 
+SQL> -- Create Tables
+SQL> -- Here using both table and column constraints
+SQL> --
+SQL> 
+SQL> CREATE TABLE student (
+  2      stu_nbr     NUMBER(8) NOT NULL,
+  3      stu_lname   VARCHAR2(50) NOT NULL,
+  4      stu_fname   VARCHAR2(50) NOT NULL,
+  5      stu_dob     DATE NOT NULL
+  6  );
+
+Table STUDENT created.
+
+SQL> 
+SQL> COMMENT ON COLUMN student.stu_nbr IS
+  2      'Student number';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN student.stu_lname IS
+  2      'Student last name';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN student.stu_fname IS
+  2      'Student first name';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN student.stu_dob IS
+  2      'Student date of birth';
+
+Comment created.
+
+SQL> 
+SQL> /* Add STUDENT constraints here */
+SQL> alter table student add constraint student_pk primary key (stu_nbr);
+
+Table STUDENT altered.
+
+SQL> alter table student add constraint chk_stu_nbr check (stu_nbr>10000000);
+
+Table STUDENT altered.
+
+SQL> 
+SQL> /* Add UNIT data types here */
+SQL> CREATE TABLE unit (
+  2      unit_code   char(7) NOT NULL,
+  3      unit_name   varchar2(50) not null --varchar also can 
+  4  );
+
+Table UNIT created.
+
+SQL> 
+SQL> COMMENT ON COLUMN unit.unit_code IS
+  2      'Unit code';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN unit.unit_name IS
+  2      'Unit name';
+
+Comment created.
+
+SQL> 
+SQL> /* Add UNIT constraints here */
+SQL> alter table unit add constraint unit_pk primary key (unit_code);
+
+Table UNIT altered.
+
+SQL> alter table unit add constraint un_unit_name unique(unit_name);
+
+Table UNIT altered.
+
+SQL> 
+SQL> /* Add EMROLMENT attributes and data types here */
+SQL> CREATE TABLE enrolment (
+  2      stu_nbr number(8) not null,
+  3      unit_code char(7) not null,
+  4      enrol_year number(4) not null, 
+  5      enrol_semester char(1) not null,
+  6      enrol_mark number(3),
+  7      enrol_grade char(2)
+  8  
+  9  );
+
+Table ENROLMENT created.
+
+SQL> 
+SQL> COMMENT ON COLUMN enrolment.stu_nbr IS
+  2      'Student number';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN enrolment.unit_code IS
+  2      'Unit code';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN enrolment.enrol_year IS
+  2      'Enrolment year';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN enrolment.enrol_semester IS
+  2      'Enrolment semester';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN enrolment.enrol_mark IS
+  2      'Enrolment mark (real)';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN enrolment.enrol_grade IS
+  2      'Enrolment grade (letter)';
+
+Comment created.
+
+SQL> 
+SQL> /* Add ENROLMENT constraints here */
+SQL> alter table enrolment add constraint enrolment_pk 
+  2  primary key(unit_code, stu_nbr, enrol_semester, enrol_year);
+
+Table ENROLMENT altered.
+
+SQL> 
+SQL> alter table enrolment add constraint student_enrolment_fk
+  2  foreign key (stu_nbr) references student(stu_nbr);
+
+Table ENROLMENT altered.
+
+SQL> 
+SQL> alter table enrolment add constraint unit_enrolment_fk
+  2  foreign key (unit_code) references unit(unit_code);
+
+Table ENROLMENT altered.
+
+SQL> 
+SQL> alter table enrolment add constraint chek_enrol_semester
+  2  check (enrol_semester in ('1','2','3'));
+
+Table ENROLMENT altered.
+
+SQL> 
+SQL> 
+SQL> SPOOL OFF

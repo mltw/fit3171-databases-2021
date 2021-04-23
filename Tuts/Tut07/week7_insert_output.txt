@@ -1,0 +1,458 @@
+SQL> 
+SQL> --delete * from student;
+SQL> 
+SQL> 
+SQL> --7.3.1
+SQL> insert into student values 
+  2  (11111111,    'Bloggs',      'Fred',        '1-Jan-1990');
+
+Error starting at line : 9 in command -
+insert into student values 
+(11111111,    'Bloggs',      'Fred',        '1-Jan-1990')
+Error report -
+ORA-00001: unique constraint (MLIM0032.STUDENT_PK) violated
+
+SQL> insert into student values
+  2  (11111112,    'Nice',        'Nick',        '10-Oct-1994');
+
+Error starting at line : 11 in command -
+insert into student values
+(11111112,    'Nice',        'Nick',        '10-Oct-1994')
+Error report -
+ORA-00001: unique constraint (MLIM0032.STUDENT_PK) violated
+
+SQL> insert into student values
+  2  (11111113,    'Wheat',       'Wendy',       '5-May-1990');
+
+Error starting at line : 13 in command -
+insert into student values
+(11111113,    'Wheat',       'Wendy',       '5-May-1990')
+Error report -
+ORA-00001: unique constraint (MLIM0032.STUDENT_PK) violated
+
+SQL> insert into student values
+  2  (11111114,    'Sheen',       'Cindy',       '25-Dec-1996');
+
+Error starting at line : 15 in command -
+insert into student values
+(11111114,    'Sheen',       'Cindy',       '25-Dec-1996')
+Error report -
+ORA-00001: unique constraint (MLIM0032.STUDENT_PK) violated
+
+SQL> 
+SQL> select * from student;
+
+   STU_NBR STU_LNAME                                          STU_FNAME                                          STU_DOB  
+---------- -------------------------------------------------- -------------------------------------------------- ---------
+  11111111 Bloggs                                             Fred                                               01/JAN/90
+  11111112 Nice                                               Nick                                               10/OCT/94
+  11111113 Wheat                                              Wendy                                              05/MAY/90
+  11111114 Sheen                                              Cindy                                              25/DEC/96
+  11111115 Mickey                                             Mouse                                              23/APR/21
+  11111116 Minnie                                             Mouse                                              23/APR/21
+
+6 rows selected. 
+
+SQL> 
+SQL> insert into unit values
+  2  ('FIT9999',     'FIT Last Unit');
+
+Error starting at line : 20 in command -
+insert into unit values
+('FIT9999',     'FIT Last Unit')
+Error report -
+ORA-00001: unique constraint (MLIM0032.UNIT_PK) violated
+
+SQL> insert into unit values
+  2  ('FIT5132',     'Introduction to Databases');
+
+Error starting at line : 22 in command -
+insert into unit values
+('FIT5132',     'Introduction to Databases')
+Error report -
+ORA-00001: unique constraint (MLIM0032.UNIT_PK) violated
+
+SQL> insert into unit values
+  2  ('FIT5016',     'Project');
+
+Error starting at line : 24 in command -
+insert into unit values
+('FIT5016',     'Project')
+Error report -
+ORA-00001: unique constraint (MLIM0032.UNIT_PK) violated
+
+SQL> insert into unit values
+  2  ('FIT5111',     'Student''s Life');
+
+Error starting at line : 26 in command -
+insert into unit values
+('FIT5111',     'Student''s Life')
+Error report -
+ORA-00001: unique constraint (MLIM0032.UNIT_PK) violated
+
+SQL> -- ^ for single quote, put '', sql will update it to be just one 
+SQL> select * from unit;
+
+UNIT_CO UNIT_NAME                                         
+------- --------------------------------------------------
+FIT9999 FIT Last Unit                                     
+FIT5132 Introduction to Databases                         
+FIT5016 Project                                           
+FIT5111 Student's Life                                    
+
+SQL> 
+SQL> select * from enrolment;
+
+   STU_NBR UNIT_CO ENROL_YEAR E ENROL_MARK EN
+---------- ------- ---------- - ---------- --
+  11111111 FIT5132       2013 1         35 N 
+  11111111 FIT5016       2013 1         61 C 
+  11111111 FIT5132       2013 2         42 N 
+  11111111 FIT5111       2013 2         76 D 
+  11111111 FIT5132       2014 2              
+  11111112 FIT5132       2013 2         83 HD
+  11111112 FIT5111       2013 2         79 D 
+  11111113 FIT5132       2014 2              
+  11111113 FIT5111       2014 2              
+  11111114 FIT5111       2014 2              
+  11111115 FIT5132       2016 2              
+
+   STU_NBR UNIT_CO ENROL_YEAR E ENROL_MARK EN
+---------- ------- ---------- - ---------- --
+  11111116 FIT5132       2016 2              
+
+12 rows selected. 
+
+SQL> insert into enrolment values
+  2  (11111111,    'FIT5132',     2013,        1,               35, 'N');
+
+Error starting at line : 32 in command -
+insert into enrolment values
+(11111111,    'FIT5132',     2013,        1,               35, 'N')
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> 
+SQL> insert into enrolment values
+  2  (11111111,    'FIT5016',     2013,        1,               61, 'C');
+
+Error starting at line : 35 in command -
+insert into enrolment values
+(11111111,    'FIT5016',     2013,        1,               61, 'C')
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> 
+SQL> insert into enrolment values
+  2  (11111111,    'FIT5132',     2013,        2,               42,          'N');
+
+Error starting at line : 38 in command -
+insert into enrolment values
+(11111111,    'FIT5132',     2013,        2,               42,          'N')
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> 
+SQL> insert into enrolment values
+  2  (11111111,    'FIT5111',     2013,        2,               76,          'D');
+
+Error starting at line : 41 in command -
+insert into enrolment values
+(11111111,    'FIT5111',     2013,        2,               76,          'D')
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> 
+SQL> insert into enrolment values
+  2  (11111111,    'FIT5132',     2014,        2, null, null);
+
+Error starting at line : 44 in command -
+insert into enrolment values
+(11111111,    'FIT5132',     2014,        2, null, null)
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> 
+SQL> insert into enrolment values
+  2  (11111112,    'FIT5132',     2013,        2,               83,          'HD');
+
+Error starting at line : 47 in command -
+insert into enrolment values
+(11111112,    'FIT5132',     2013,        2,               83,          'HD')
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> 
+SQL> insert into enrolment values('11111112','FIT5111','2013','2','79','D');
+
+Error starting at line : 50 in command -
+insert into enrolment values('11111112','FIT5111','2013','2','79','D')
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> insert into enrolment values('11111113','FIT5132','2014','2',null,null);
+
+Error starting at line : 51 in command -
+insert into enrolment values('11111113','FIT5132','2014','2',null,null)
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> insert into enrolment values('11111113','FIT5111','2014','2',null,null);
+
+Error starting at line : 52 in command -
+insert into enrolment values('11111113','FIT5111','2014','2',null,null)
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> insert into enrolment values('11111114','FIT5111','2014','2',null,null);
+
+Error starting at line : 53 in command -
+insert into enrolment values('11111114','FIT5111','2014','2',null,null)
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> 
+SQL> 
+SQL> commit;
+
+Commit complete.
+
+SQL> --using SEQUENCEs in INSERT statement
+SQL> drop sequence student_seq;
+
+Sequence STUDENT_SEQ dropped.
+
+SQL> create sequence student_seq start with 11111115 increment by 1;
+
+Sequence STUDENT_SEQ created.
+
+SQL> select *from cat;
+
+TABLE_NAME                                                                                                                       TABLE_TYPE 
+-------------------------------------------------------------------------------------------------------------------------------- -----------
+STUDENT_SEQ                                                                                                                      SEQUENCE   
+CUSTOMER                                                                                                                         TABLE      
+EMPLOYEE                                                                                                                         TABLE      
+ENROLMENT                                                                                                                        TABLE      
+ENROLMENT_GOOD                                                                                                                   TABLE      
+FIT5111_STUDENT                                                                                                                  TABLE      
+MYFIRSTDB                                                                                                                        TABLE      
+ORDERLINE                                                                                                                        TABLE      
+ORDERS                                                                                                                           TABLE      
+PRODUCT                                                                                                                          TABLE      
+PROD_CATEGORY                                                                                                                    TABLE      
+
+TABLE_NAME                                                                                                                       TABLE_TYPE 
+-------------------------------------------------------------------------------------------------------------------------------- -----------
+STUDENT                                                                                                                          TABLE      
+STUDENT_GOOD                                                                                                                     TABLE      
+STUDENT_POOR                                                                                                                     TABLE      
+TEAM                                                                                                                             TABLE      
+UNIT                                                                                                                             TABLE      
+UNIT_GOOD                                                                                                                        TABLE      
+
+17 rows selected. 
+
+SQL> 
+SQL> insert into student values( student_seq.nextval, 'Mickey', 'Mouse', '23/Apr/2021');
+
+Error starting at line : 62 in command -
+insert into student values( student_seq.nextval, 'Mickey', 'Mouse', '23/Apr/2021')
+Error report -
+ORA-00001: unique constraint (MLIM0032.STUDENT_PK) violated
+
+SQL> select * from student;
+
+   STU_NBR STU_LNAME                                          STU_FNAME                                          STU_DOB  
+---------- -------------------------------------------------- -------------------------------------------------- ---------
+  11111111 Bloggs                                             Fred                                               01/JAN/90
+  11111112 Nice                                               Nick                                               10/OCT/94
+  11111113 Wheat                                              Wendy                                              05/MAY/90
+  11111114 Sheen                                              Cindy                                              25/DEC/96
+  11111115 Mickey                                             Mouse                                              23/APR/21
+  11111116 Minnie                                             Mouse                                              23/APR/21
+
+6 rows selected. 
+
+SQL> 
+SQL> insert into enrolment values(student_seq.currval, 'FIT5132','2016','2',null,null);
+
+Error starting at line : 65 in command -
+insert into enrolment values(student_seq.currval, 'FIT5132','2016','2',null,null)
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> select * from enrolment;
+
+   STU_NBR UNIT_CO ENROL_YEAR E ENROL_MARK EN
+---------- ------- ---------- - ---------- --
+  11111111 FIT5132       2013 1         35 N 
+  11111111 FIT5016       2013 1         61 C 
+  11111111 FIT5132       2013 2         42 N 
+  11111111 FIT5111       2013 2         76 D 
+  11111111 FIT5132       2014 2              
+  11111112 FIT5132       2013 2         83 HD
+  11111112 FIT5111       2013 2         79 D 
+  11111113 FIT5132       2014 2              
+  11111113 FIT5111       2014 2              
+  11111114 FIT5111       2014 2              
+  11111115 FIT5132       2016 2              
+
+   STU_NBR UNIT_CO ENROL_YEAR E ENROL_MARK EN
+---------- ------- ---------- - ---------- --
+  11111116 FIT5132       2016 2              
+
+12 rows selected. 
+
+SQL> 
+SQL> commit;
+
+Commit complete.
+
+SQL> 
+SQL> 
+SQL> --advanced INSERT 
+SQL> insert into student values( student_seq.nextval, 'Minnie', 'Mouse', '23/Apr/2021');
+
+Error starting at line : 72 in command -
+insert into student values( student_seq.nextval, 'Minnie', 'Mouse', '23/Apr/2021')
+Error report -
+ORA-00001: unique constraint (MLIM0032.STUDENT_PK) violated
+
+SQL> select * from student;
+
+   STU_NBR STU_LNAME                                          STU_FNAME                                          STU_DOB  
+---------- -------------------------------------------------- -------------------------------------------------- ---------
+  11111111 Bloggs                                             Fred                                               01/JAN/90
+  11111112 Nice                                               Nick                                               10/OCT/94
+  11111113 Wheat                                              Wendy                                              05/MAY/90
+  11111114 Sheen                                              Cindy                                              25/DEC/96
+  11111115 Mickey                                             Mouse                                              23/APR/21
+  11111116 Minnie                                             Mouse                                              23/APR/21
+
+6 rows selected. 
+
+SQL> 
+SQL> insert into enrolment values(student_seq.currval, 
+  2  (select unit_code from unit where unit_name = 'Introduction to Databases'),
+  3  '2016','2',null,null);
+
+Error starting at line : 75 in command -
+insert into enrolment values(student_seq.currval, 
+(select unit_code from unit where unit_name = 'Introduction to Databases'),
+'2016','2',null,null)
+Error report -
+ORA-00001: unique constraint (MLIM0032.ENROLMENT_PK) violated
+
+SQL> select * from enrolment;
+
+   STU_NBR UNIT_CO ENROL_YEAR E ENROL_MARK EN
+---------- ------- ---------- - ---------- --
+  11111111 FIT5132       2013 1         35 N 
+  11111111 FIT5016       2013 1         61 C 
+  11111111 FIT5132       2013 2         42 N 
+  11111111 FIT5111       2013 2         76 D 
+  11111111 FIT5132       2014 2              
+  11111112 FIT5132       2013 2         83 HD
+  11111112 FIT5111       2013 2         79 D 
+  11111113 FIT5132       2014 2              
+  11111113 FIT5111       2014 2              
+  11111114 FIT5111       2014 2              
+  11111115 FIT5132       2016 2              
+
+   STU_NBR UNIT_CO ENROL_YEAR E ENROL_MARK EN
+---------- ------- ---------- - ---------- --
+  11111116 FIT5132       2016 2              
+
+12 rows selected. 
+
+SQL> commit;
+
+Commit complete.
+
+SQL> 
+SQL> --7.3.4 
+SQL> drop table fit5111_student;
+
+Table FIT5111_STUDENT dropped.
+
+SQL> create table fit5111_student as 
+  2  select * from enrolment where unit_code = 'FIT5111';
+
+Table FIT5111_STUDENT created.
+
+SQL> 
+SQL> select * from cat;
+
+TABLE_NAME                                                                                                                       TABLE_TYPE 
+-------------------------------------------------------------------------------------------------------------------------------- -----------
+STUDENT_SEQ                                                                                                                      SEQUENCE   
+CUSTOMER                                                                                                                         TABLE      
+EMPLOYEE                                                                                                                         TABLE      
+ENROLMENT                                                                                                                        TABLE      
+ENROLMENT_GOOD                                                                                                                   TABLE      
+FIT5111_STUDENT                                                                                                                  TABLE      
+MYFIRSTDB                                                                                                                        TABLE      
+ORDERLINE                                                                                                                        TABLE      
+ORDERS                                                                                                                           TABLE      
+PRODUCT                                                                                                                          TABLE      
+PROD_CATEGORY                                                                                                                    TABLE      
+
+TABLE_NAME                                                                                                                       TABLE_TYPE 
+-------------------------------------------------------------------------------------------------------------------------------- -----------
+STUDENT                                                                                                                          TABLE      
+STUDENT_GOOD                                                                                                                     TABLE      
+STUDENT_POOR                                                                                                                     TABLE      
+TEAM                                                                                                                             TABLE      
+UNIT                                                                                                                             TABLE      
+UNIT_GOOD                                                                                                                        TABLE      
+
+17 rows selected. 
+
+SQL> select * from fit5111_student;
+
+   STU_NBR UNIT_CO ENROL_YEAR E ENROL_MARK EN
+---------- ------- ---------- - ---------- --
+  11111111 FIT5111       2013 2         76 D 
+  11111112 FIT5111       2013 2         79 D 
+  11111113 FIT5111       2014 2              
+  11111114 FIT5111       2014 2              
+
+SQL> 
+SQL> COMMENT ON COLUMN fit5111_student.stu_nbr IS
+  2      'Student number';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN fit5111_student.unit_code IS
+  2      'Unit code';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN fit5111_student.enrol_year IS
+  2      'Enrolment year';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN fit5111_student.enrol_semester IS
+  2      'Enrolment semester';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN fit5111_student.enrol_mark IS
+  2      'Enrolment mark (real)';
+
+Comment created.
+
+SQL> 
+SQL> COMMENT ON COLUMN fit5111_student.enrol_grade IS
+  2      'Enrolment grade (letter)';
+
+Comment created.
+
+SQL> 
+SQL> spool off

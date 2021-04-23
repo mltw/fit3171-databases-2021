@@ -1,0 +1,11 @@
+alter table unit drop column unit_points;
+alter table unit add (unit_points number(2) default 6);
+
+COMMENT ON COLUMN unit.unit_points IS
+'Unit points';
+    
+select * from unit;
+
+insert into unit values ('FIT6666', 'ABC', 12);
+
+commit;

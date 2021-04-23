@@ -1,0 +1,108 @@
+--7.3 INSERTing data into the database
+set echo on
+spool week7_insert_output.txt
+
+--delete * from student;
+
+
+--7.3.1
+insert into student values 
+(11111111,    'Bloggs',      'Fred',        '1-Jan-1990');
+insert into student values
+(11111112,    'Nice',        'Nick',        '10-Oct-1994');
+insert into student values
+(11111113,    'Wheat',       'Wendy',       '5-May-1990');
+insert into student values
+(11111114,    'Sheen',       'Cindy',       '25-Dec-1996');
+
+select * from student;
+
+insert into unit values
+('FIT9999',     'FIT Last Unit');
+insert into unit values
+('FIT5132',     'Introduction to Databases');
+insert into unit values
+('FIT5016',     'Project');
+insert into unit values
+('FIT5111',     'Student''s Life'); 
+-- ^ for single quote, put '', sql will update it to be just one 
+select * from unit;
+
+select * from enrolment;
+insert into enrolment values
+(11111111,    'FIT5132',     2013,        1,               35, 'N');
+
+insert into enrolment values
+(11111111,    'FIT5016',     2013,        1,               61, 'C'); 
+         
+insert into enrolment values
+(11111111,    'FIT5132',     2013,        2,               42,          'N');
+
+insert into enrolment values
+(11111111,    'FIT5111',     2013,        2,               76,          'D');
+
+insert into enrolment values
+(11111111,    'FIT5132',     2014,        2, null, null);
+
+insert into enrolment values
+(11111112,    'FIT5132',     2013,        2,               83,          'HD');
+
+insert into enrolment values('11111112','FIT5111','2013','2','79','D');
+insert into enrolment values('11111113','FIT5132','2014','2',null,null);
+insert into enrolment values('11111113','FIT5111','2014','2',null,null);
+insert into enrolment values('11111114','FIT5111','2014','2',null,null);
+    
+
+commit;
+--using SEQUENCEs in INSERT statement
+drop sequence student_seq;
+create sequence student_seq start with 11111115 increment by 1;
+select *from cat;
+
+insert into student values( student_seq.nextval, 'Mickey', 'Mouse', '23/Apr/2021');
+select * from student;
+
+insert into enrolment values(student_seq.currval, 'FIT5132','2016','2',null,null);
+select * from enrolment;
+
+commit;
+
+
+--advanced INSERT 
+insert into student values( student_seq.nextval, 'Minnie', 'Mouse', '23/Apr/2021');
+select * from student;
+
+insert into enrolment values(student_seq.currval, 
+(select unit_code from unit where unit_name = 'Introduction to Databases'),
+'2016','2',null,null);
+select * from enrolment;
+commit;
+
+--7.3.4 
+drop table fit5111_student;
+create table fit5111_student as 
+select * from enrolment where unit_code = 'FIT5111';
+
+select * from cat;
+select * from fit5111_student;
+
+COMMENT ON COLUMN fit5111_student.stu_nbr IS
+    'Student number';
+
+COMMENT ON COLUMN fit5111_student.unit_code IS
+    'Unit code';
+
+COMMENT ON COLUMN fit5111_student.enrol_year IS
+    'Enrolment year';
+
+COMMENT ON COLUMN fit5111_student.enrol_semester IS
+    'Enrolment semester';
+
+COMMENT ON COLUMN fit5111_student.enrol_mark IS
+    'Enrolment mark (real)';
+
+COMMENT ON COLUMN fit5111_student.enrol_grade IS
+    'Enrolment grade (letter)';
+
+spool off
+set echo off
