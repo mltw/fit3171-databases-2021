@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D79058E3-309B-CD2B-1DE8-7765954E22A0" name="SPECIALISATION">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:45:05 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="spec_code" id="8C1E57D3-6BD0-5A24-563F-AAA1B2B667B3">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:45:35 UTC</createdTime>
+<commentInRDBMS><![CDATA[area of specialisation code ]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="spec_desc" id="CED745D5-C685-188A-DDD1-E210160F553A">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:48:05 UTC</createdTime>
+<commentInRDBMS><![CDATA[description of the area of specialisation]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BF73903C-4AF8-E4C8-DE46-2F06C25F57F3" name="SPECIALISATION PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:48:03 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8C1E57D3-6BD0-5A24-563F-AAA1B2B667B3</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,136 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2BE9E443-8A28-87FF-ECC9-2E67E88D0720" name="VET">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 05:55:18 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="vet_id" id="D674579F-2B7E-31F3-E21E-978C857AAC44">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 05:56:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet id]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vet_givname" id="8F67C34D-250B-CE72-A657-83DCEC5282B7">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:00:07 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet given name]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vet_famname" id="1A135356-738A-57CF-1A67-0750D6E77FA5">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:00:56 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet family name]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vet_phone" id="6851FC2C-71D1-621A-5D65-F8D423FEA6EE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:01:43 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet phone number]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vet_employdate" id="ABE32E36-EC8A-7FD7-FA54-BB425F8F581D">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:02:06 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet's first employed date]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="clinic_id" id="7D9B0242-6BF5-25D3-0ADD-C542FD3EF73A">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:08:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[clinic id]]></commentInRDBMS>
+<generatorID>AFF5DE38-4477-8954-922A-7552FC5E95EB</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>54905FE1-516B-D641-5D84-EAB4F485023C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vet_specialise" id="00DC09D9-3A11-A108-521B-B165800806A7">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 06:53:33 UTC</createdTime>
+<commentInRDBMS><![CDATA[area of specialisation code ]]></commentInRDBMS>
+<generatorID>B95D3665-F413-DB2A-7163-ABAB8130CF0C</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>8C1E57D3-6BD0-5A24-563F-AAA1B2B667B3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="53071333-68BC-E482-3566-CEA4FB8E882B" name="VET PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 05:56:44 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D674579F-2B7E-31F3-E21E-978C857AAC44</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
