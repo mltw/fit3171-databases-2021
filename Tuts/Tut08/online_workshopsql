@@ -1,0 +1,20 @@
+--Show the ids, names of students as a single column called NAME and their DOBs. Order the output in date of birth orde
+
+--Marcus Lim
+--24/4/2021
+
+SELECT  studid || ' ' || studfname || ' ' || studlname as NAME,
+studdob 
+FROM
+uni.student
+ORDER BY
+studdob;
+
+
+--Q2 Show the ids, names of students as a single column called NAME, unit code, 
+--and year and semester of enrolment where the mark is NULL. 
+--Order the output by student id, within unit code order
+--SELECT  studid || ' ' || studfname || ' ' || studlname as NAME,
+--        
+
+
