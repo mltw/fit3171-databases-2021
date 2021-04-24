@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="909AFE9F-1F83-B60B-25B2-CEC2D7E96AA3" name="CLINIC">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 04:54:25 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="clinic_id" id="54905FE1-516B-D641-5D84-EAB4F485023C">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 04:54:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[clinic id]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="clinic_name" id="79E1CBE1-BEDF-AC83-FD3B-839E21DF0EB2">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 05:04:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[clinic name ]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="clinic_address" id="F2456EBE-2E28-D116-15E1-A8CC6939AB9B">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 05:04:56 UTC</createdTime>
+<commentInRDBMS><![CDATA[clinic address]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="clinic_phone" id="6D25C6FD-AB07-5CF1-3554-924BA6E31FE3">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 05:06:53 UTC</createdTime>
+<commentInRDBMS><![CDATA[clinic phone number]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D237AAD0-17CB-E649-6C27-5054AD5DA213" name="CLINIC PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 05:05:38 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>54905FE1-516B-D641-5D84-EAB4F485023C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
