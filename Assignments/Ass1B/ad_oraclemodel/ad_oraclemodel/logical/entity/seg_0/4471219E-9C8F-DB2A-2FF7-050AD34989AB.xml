@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D79058E3-309B-CD2B-1DE8-7765954E22A0" name="SPECIALISATION">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4471219E-9C8F-DB2A-2FF7-050AD34989AB" name="PET_TYPE">
 <createdBy>mlim0032</createdBy>
-<createdTime>2021-04-24 06:45:05 UTC</createdTime>
+<createdTime>2021-04-25 02:33:26 UTC</createdTime>
 <ownerDesignName>ad_oraclemodel</ownerDesignName>
 <engineerTo>
 <item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
@@ -15,10 +15,10 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="spec_code" id="8C1E57D3-6BD0-5A24-563F-AAA1B2B667B3">
+<Attribute name="pet_type_code" id="FEECC16D-DA6E-54DB-1723-9162D0447DD8">
 <createdBy>mlim0032</createdBy>
-<createdTime>2021-04-24 06:45:35 UTC</createdTime>
-<commentInRDBMS><![CDATA[area of specialisation code ]]></commentInRDBMS>
+<createdTime>2021-04-25 02:33:40 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet type code]]></commentInRDBMS>
 <ownerDesignName>ad_oraclemodel</ownerDesignName>
 <engineerTo>
 <item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
@@ -29,10 +29,10 @@
 <dataTypeSize>5</dataTypeSize>
 <ownDataTypeParameters>5,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="spec_name" id="CED745D5-C685-188A-DDD1-E210160F553A">
+<Attribute name="pet_type_name" id="F2CFF928-3401-7B21-E349-7439451788AB">
 <createdBy>mlim0032</createdBy>
-<createdTime>2021-04-24 06:48:05 UTC</createdTime>
-<commentInRDBMS><![CDATA[name of the area of specialisation]]></commentInRDBMS>
+<createdTime>2021-04-25 02:36:05 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet type name]]></commentInRDBMS>
 <ownerDesignName>ad_oraclemodel</ownerDesignName>
 <engineerTo>
 <item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
@@ -40,21 +40,21 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>30</dataTypeSize>
-<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="BF73903C-4AF8-E4C8-DE46-2F06C25F57F3" name="SPECIALISATION PK">
+<identifier id="351548F7-18F6-3E3F-B2FA-6968800D5C4F" name="PET_TYPE PK">
 <createdBy>mlim0032</createdBy>
-<createdTime>2021-04-24 06:48:03 UTC</createdTime>
+<createdTime>2021-04-25 02:36:33 UTC</createdTime>
 <ownerDesignName>ad_oraclemodel</ownerDesignName>
 <engineerTo>
 <item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>8C1E57D3-6BD0-5A24-563F-AAA1B2B667B3</attributeRef>
+<attributeRef>FEECC16D-DA6E-54DB-1723-9162D0447DD8</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

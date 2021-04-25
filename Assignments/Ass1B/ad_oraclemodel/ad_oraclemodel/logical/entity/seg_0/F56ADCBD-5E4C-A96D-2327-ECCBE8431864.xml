@@ -1,0 +1,187 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F56ADCBD-5E4C-A96D-2327-ECCBE8431864" name="VISIT">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 14:44:44 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="visit_datetime" id="ABF89B59-2DDA-495F-49D6-2426D5A271ED">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 14:45:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[date and time of visit]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="visit_duration" id="0F7FCA13-5A31-BDD5-A7AF-092695418A99">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 14:48:51 UTC</createdTime>
+<commentInRDBMS><![CDATA[length/duration of the visit]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1000</dataTypePrecision>
+<ownDataTypeParameters>,1000,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="visit_notes" id="617E667A-D973-C07B-3F8C-78548F056645">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 14:51:01 UTC</createdTime>
+<commentInRDBMS><![CDATA[notes made in that visit]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="visit_totalcost" id="101C326B-0725-0631-91DC-ECBA36F53F82">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 15:40:25 UTC</createdTime>
+<commentInRDBMS><![CDATA[total cost of the visit, including service cost and drug cost]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1000000</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,1000000,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="visit_paidby" id="A8BA76BC-46BF-8D66-AF7F-70D8EFB27263">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 15:41:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[payment method of that visit]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<constraintName>chk_visit_paidby</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>4</dataTypeSize>
+<listOfValues>
+<valueDef value="CASH" description="Cash"/>
+<valueDef value="EPT" description="ept"/>
+</listOfValues>
+<ownDataTypeParameters>4,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prev_visit_datetime" id="AEF0A46F-3286-BD48-5F15-5F089D503A36">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 14:51:52 UTC</createdTime>
+<commentInRDBMS><![CDATA[ date and time of previous visit]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prev_visit_petid" id="1ADD7A72-90DB-2F00-260B-2A1F3F497CC7">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 15:24:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet id of previous visit]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vet_id" id="F56419B7-D262-86A0-33AE-8337428332AE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 15:47:50 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet id]]></commentInRDBMS>
+<generatorID>F9342ECF-E6CD-7BF0-9022-E5D66D184B4A</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>9FD45127-DC93-98B0-B480-7969E5D8470F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="clinic_id" id="C256BD62-81EE-779C-C4E9-AAA2A15556F8">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 15:47:50 UTC</createdTime>
+<commentInRDBMS><![CDATA[clinic id]]></commentInRDBMS>
+<generatorID>F9342ECF-E6CD-7BF0-9022-E5D66D184B4A</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>9E5419B3-9161-4770-F2FA-DB80F719F142</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pet_id" id="C043163B-AD47-E279-03D2-61543CB5C826">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 01:25:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet id]]></commentInRDBMS>
+<generatorID>772DD4CD-49AF-3558-5B2F-1002DBAB4F10</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>913161CE-3C40-BFD5-9BF3-615C9DD9D9B6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>6,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6A5A0F5B-8E76-950B-A239-E54329CB876A" name="VISIT PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-24 14:47:05 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>ABF89B59-2DDA-495F-49D6-2426D5A271ED</attributeRef>
+<attributeRef>C043163B-AD47-E279-03D2-61543CB5C826</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
