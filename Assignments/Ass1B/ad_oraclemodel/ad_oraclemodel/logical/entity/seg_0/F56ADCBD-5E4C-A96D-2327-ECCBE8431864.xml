@@ -28,6 +28,22 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="pet_id" id="C043163B-AD47-E279-03D2-61543CB5C826">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 01:25:03 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet id]]></commentInRDBMS>
+<generatorID>772DD4CD-49AF-3558-5B2F-1002DBAB4F10</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>913161CE-3C40-BFD5-9BF3-615C9DD9D9B6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="visit_duration" id="0F7FCA13-5A31-BDD5-A7AF-092695418A99">
 <createdBy>mlim0032</createdBy>
 <createdTime>2021-04-24 14:48:51 UTC</createdTime>
@@ -39,8 +55,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>1000</dataTypePrecision>
-<ownDataTypeParameters>,1000,</ownDataTypeParameters>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="visit_notes" id="617E667A-D973-C07B-3F8C-78548F056645">
 <createdBy>mlim0032</createdBy>
@@ -68,9 +84,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>1000000</dataTypePrecision>
+<dataTypePrecision>8</dataTypePrecision>
 <dataTypeScale>2</dataTypeScale>
-<ownDataTypeParameters>,1000000,2</ownDataTypeParameters>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
 </Attribute>
 <Attribute name="visit_paidby" id="A8BA76BC-46BF-8D66-AF7F-70D8EFB27263">
 <createdBy>mlim0032</createdBy>
@@ -151,22 +167,6 @@
 <logicalDatatype>LOGDT025</logicalDatatype>
 <dataTypeSize>5</dataTypeSize>
 <ownDataTypeParameters>5,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="pet_id" id="C043163B-AD47-E279-03D2-61543CB5C826">
-<createdBy>mlim0032</createdBy>
-<createdTime>2021-04-25 01:25:03 UTC</createdTime>
-<commentInRDBMS><![CDATA[pet id]]></commentInRDBMS>
-<generatorID>772DD4CD-49AF-3558-5B2F-1002DBAB4F10</generatorID>
-<ownerDesignName>ad_oraclemodel</ownerDesignName>
-<engineerTo>
-<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
-</engineerTo>
-<referedAttribute>913161CE-3C40-BFD5-9BF3-615C9DD9D9B6</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>6</dataTypeSize>
-<ownDataTypeParameters>6,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">

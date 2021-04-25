@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="461BD252-9007-8B78-D9E2-BB89114EC207" name="PRESCRIPTION">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:30:24 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="visit_datetime" id="2CE182C6-6C80-1FE7-3B69-77AD95D12513">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:40:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[date and time of visit]]></commentInRDBMS>
+<generatorID>AF0DD350-6B23-C6F7-5F14-CD7EABE98C80</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>ABF89B59-2DDA-495F-49D6-2426D5A271ED</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pet_id" id="A4BE1EED-787D-F70E-D8A5-ABFCC12C80AE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:40:59 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet id]]></commentInRDBMS>
+<generatorID>AF0DD350-6B23-C6F7-5F14-CD7EABE98C80</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>C043163B-AD47-E279-03D2-61543CB5C826</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="drug_id" id="D3B2E924-C7F4-4A6C-AA3B-3A7F05258E82">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:42:32 UTC</createdTime>
+<commentInRDBMS><![CDATA[drug id]]></commentInRDBMS>
+<generatorID>C5170466-4460-02B2-ED4B-ADC7FB47B50F</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>0912C467-D7CA-5CE8-255C-85B58841D5A1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pres_drug_dose" id="5AB9AC83-4098-EDAA-E634-E79F040F9BE6">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:30:58 UTC</createdTime>
+<commentInRDBMS><![CDATA[prescribed drug dose]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pres_drug_admin_freq" id="9E8CA3A8-EB34-6494-422A-3BD140BCF140">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:33:31 UTC</createdTime>
+<commentInRDBMS><![CDATA[prescribed drug administration frequency]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pres_drug_qty" id="5806DA82-320B-9AD7-467D-E2DBCDE95A71">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:34:09 UTC</createdTime>
+<commentInRDBMS><![CDATA[prescribed drug quantity]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pres_drug_cost" id="6FF4873F-6655-AF41-B14B-031B78B6FB2B">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:36:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[prescribed drug cost]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7671BD2D-919C-4F91-6CD3-4A20AC805451" name="PRESCRIPTION PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:40:59 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2CE182C6-6C80-1FE7-3B69-77AD95D12513</attributeRef>
+<attributeRef>A4BE1EED-787D-F70E-D8A5-ABFCC12C80AE</attributeRef>
+<attributeRef>D3B2E924-C7F4-4A6C-AA3B-3A7F05258E82</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

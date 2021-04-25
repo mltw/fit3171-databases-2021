@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="01F804C0-0823-0759-07A4-38B731EBAA12" name="VISIT_SERVICE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:55:18 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="visit_datetime" id="0D967348-3295-7B61-BB11-482D1952CC2C">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:58:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[date and time of visit]]></commentInRDBMS>
+<generatorID>F25FEFBF-64B9-AEA4-1C4C-3CB896847F52</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>ABF89B59-2DDA-495F-49D6-2426D5A271ED</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pet_id" id="497F1490-D374-5E39-AD01-E2A1C9A2B409">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:58:55 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet id]]></commentInRDBMS>
+<generatorID>F25FEFBF-64B9-AEA4-1C4C-3CB896847F52</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>C043163B-AD47-E279-03D2-61543CB5C826</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="service_code" id="884006D3-F963-3934-8751-7CEE5A1D2022">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 05:02:30 UTC</createdTime>
+<commentInRDBMS><![CDATA[service code]]></commentInRDBMS>
+<generatorID>FC544CCA-F33C-E834-8DB5-6BF16DD10255</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<referedAttribute>5193B681-FD95-C97B-C082-F98E65799125</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="visit_service_cost" id="A02053C6-7649-36B0-A759-A2102AB02679">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:55:25 UTC</createdTime>
+<commentInRDBMS><![CDATA[cost of service in that visit]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="99655500-0F69-2CDF-8314-A157DB78B046" name="VISIT_SERVICE PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 04:58:55 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0D967348-3295-7B61-BB11-482D1952CC2C</attributeRef>
+<attributeRef>497F1490-D374-5E39-AD01-E2A1C9A2B409</attributeRef>
+<attributeRef>884006D3-F963-3934-8751-7CEE5A1D2022</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

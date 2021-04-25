@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="SERVICE_VISITSERVICE" directorySegmentName="seg_0" id="FC544CCA-F33C-E834-8DB5-6BF16DD10255">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 05:02:30 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<sourcePk>DEB38B58-7392-A490-4839-2ED4A8535627</sourcePk>
+<identifying>true</identifying>
+<nameOnSource>is used in</nameOnSource>
+<nameOnTarget> </nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>A7BF712B-C660-1BC7-6139-3BE356B2ABAE</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>01F804C0-0823-0759-07A4-38B731EBAA12</targetEntity>
+<transferable>true</transferable>
+</Relation>
