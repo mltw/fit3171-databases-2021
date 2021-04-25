@@ -15,6 +15,20 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="visit_id" id="8ED05ECE-68D7-6E40-5C03-053A9EF4C634">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 06:40:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[visit id (surrogate PK)]]></commentInRDBMS>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="visit_datetime" id="ABF89B59-2DDA-495F-49D6-2426D5A271ED">
 <createdBy>mlim0032</createdBy>
 <createdTime>2021-04-24 14:45:11 UTC</createdTime>
@@ -40,8 +54,8 @@
 <referedAttribute>913161CE-3C40-BFD5-9BF3-615C9DD9D9B6</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>6</dataTypeSize>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="visit_duration" id="0F7FCA13-5A31-BDD5-A7AF-092695418A99">
@@ -103,38 +117,9 @@
 <dataTypeSize>4</dataTypeSize>
 <listOfValues>
 <valueDef value="CASH" description="Cash"/>
-<valueDef value="EPT" description="ept"/>
+<valueDef value="EPT" description="Ept"/>
 </listOfValues>
 <ownDataTypeParameters>4,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="prev_visit_datetime" id="AEF0A46F-3286-BD48-5F15-5F089D503A36">
-<createdBy>mlim0032</createdBy>
-<createdTime>2021-04-24 14:51:52 UTC</createdTime>
-<commentInRDBMS><![CDATA[ date and time of previous visit]]></commentInRDBMS>
-<ownerDesignName>ad_oraclemodel</ownerDesignName>
-<engineerTo>
-<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="prev_visit_petid" id="1ADD7A72-90DB-2F00-260B-2A1F3F497CC7">
-<createdBy>mlim0032</createdBy>
-<createdTime>2021-04-24 15:24:22 UTC</createdTime>
-<commentInRDBMS><![CDATA[pet id of previous visit]]></commentInRDBMS>
-<ownerDesignName>ad_oraclemodel</ownerDesignName>
-<engineerTo>
-<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>6</dataTypeSize>
-<ownDataTypeParameters>6,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="vet_id" id="F56419B7-D262-86A0-33AE-8337428332AE">
 <createdBy>mlim0032</createdBy>
@@ -148,7 +133,8 @@
 <referedAttribute>9FD45127-DC93-98B0-B480-7969E5D8470F</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
 <dataTypeSize>6</dataTypeSize>
 <ownDataTypeParameters>6,,</ownDataTypeParameters>
 </Attribute>
@@ -164,9 +150,26 @@
 <referedAttribute>9E5419B3-9161-4770-F2FA-DB80F719F142</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>5</dataTypeSize>
-<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prev_visit_id" id="A61D3506-28F7-70E9-5B19-29BFDF964878">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 07:18:30 UTC</createdTime>
+<commentInRDBMS><![CDATA[visit id (surrogate PK)]]></commentInRDBMS>
+<generatorID>1515A381-379A-5B57-9E86-2C4D88E891DB</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>8ED05ECE-68D7-6E40-5C03-053A9EF4C634</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -178,6 +181,18 @@
 <item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<usedAttributes>
+<attributeRef>8ED05ECE-68D7-6E40-5C03-053A9EF4C634</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="05E04800-20A8-E2AA-7E3F-9BC5CD2353DE" name="VISIT_NK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-25 06:53:05 UTC</createdTime>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
+</engineerTo>
+<newElementsIDs>ABF89B59-2DDA-495F-49D6-2426D5A271ED,772DD4CD-49AF-3558-5B2F-1002DBAB4F10</newElementsIDs>
 <usedAttributes>
 <attributeRef>ABF89B59-2DDA-495F-49D6-2426D5A271ED</attributeRef>
 <attributeRef>C043163B-AD47-E279-03D2-61543CB5C826</attributeRef>

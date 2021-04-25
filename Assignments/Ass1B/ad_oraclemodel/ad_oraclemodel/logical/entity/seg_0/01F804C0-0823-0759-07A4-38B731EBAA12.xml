@@ -15,35 +15,20 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="visit_datetime" id="0D967348-3295-7B61-BB11-482D1952CC2C">
+<Attribute name="visit_id" id="34296A3F-1535-A049-13E7-9941E7C67875">
 <createdBy>mlim0032</createdBy>
-<createdTime>2021-04-25 04:58:55 UTC</createdTime>
-<commentInRDBMS><![CDATA[date and time of visit]]></commentInRDBMS>
+<createdTime>2021-04-25 06:55:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[visit id (surrogate PK)]]></commentInRDBMS>
 <generatorID>F25FEFBF-64B9-AEA4-1C4C-3CB896847F52</generatorID>
 <ownerDesignName>ad_oraclemodel</ownerDesignName>
 <engineerTo>
 <item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
 </engineerTo>
-<referedAttribute>ABF89B59-2DDA-495F-49D6-2426D5A271ED</referedAttribute>
+<referedAttribute>8ED05ECE-68D7-6E40-5C03-053A9EF4C634</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="pet_id" id="497F1490-D374-5E39-AD01-E2A1C9A2B409">
-<createdBy>mlim0032</createdBy>
-<createdTime>2021-04-25 04:58:55 UTC</createdTime>
-<commentInRDBMS><![CDATA[pet id]]></commentInRDBMS>
-<generatorID>F25FEFBF-64B9-AEA4-1C4C-3CB896847F52</generatorID>
-<ownerDesignName>ad_oraclemodel</ownerDesignName>
-<engineerTo>
-<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
-</engineerTo>
-<referedAttribute>C043163B-AD47-E279-03D2-61543CB5C826</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>6</dataTypeSize>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="service_code" id="884006D3-F963-3934-8751-7CEE5A1D2022">
@@ -88,9 +73,8 @@
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>0D967348-3295-7B61-BB11-482D1952CC2C</attributeRef>
-<attributeRef>497F1490-D374-5E39-AD01-E2A1C9A2B409</attributeRef>
 <attributeRef>884006D3-F963-3934-8751-7CEE5A1D2022</attributeRef>
+<attributeRef>34296A3F-1535-A049-13E7-9941E7C67875</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

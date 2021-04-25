@@ -15,35 +15,20 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="visit_datetime" id="2CE182C6-6C80-1FE7-3B69-77AD95D12513">
+<Attribute name="visit_id" id="5EC9E7A2-1565-000B-7A56-025137FCCB71">
 <createdBy>mlim0032</createdBy>
-<createdTime>2021-04-25 04:40:59 UTC</createdTime>
-<commentInRDBMS><![CDATA[date and time of visit]]></commentInRDBMS>
+<createdTime>2021-04-25 06:55:18 UTC</createdTime>
+<commentInRDBMS><![CDATA[visit id (surrogate PK)]]></commentInRDBMS>
 <generatorID>AF0DD350-6B23-C6F7-5F14-CD7EABE98C80</generatorID>
 <ownerDesignName>ad_oraclemodel</ownerDesignName>
 <engineerTo>
 <item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
 </engineerTo>
-<referedAttribute>ABF89B59-2DDA-495F-49D6-2426D5A271ED</referedAttribute>
+<referedAttribute>8ED05ECE-68D7-6E40-5C03-053A9EF4C634</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="pet_id" id="A4BE1EED-787D-F70E-D8A5-ABFCC12C80AE">
-<createdBy>mlim0032</createdBy>
-<createdTime>2021-04-25 04:40:59 UTC</createdTime>
-<commentInRDBMS><![CDATA[pet id]]></commentInRDBMS>
-<generatorID>AF0DD350-6B23-C6F7-5F14-CD7EABE98C80</generatorID>
-<ownerDesignName>ad_oraclemodel</ownerDesignName>
-<engineerTo>
-<item key="763A38F3-BB61-F111-A537-FCEFE45F10A7" value="true"/>
-</engineerTo>
-<referedAttribute>C043163B-AD47-E279-03D2-61543CB5C826</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>6</dataTypeSize>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="drug_id" id="D3B2E924-C7F4-4A6C-AA3B-3A7F05258E82">
@@ -58,8 +43,8 @@
 <referedAttribute>0912C467-D7CA-5CE8-255C-85B58841D5A1</referedAttribute>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>5</dataTypeSize>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="pres_drug_dose" id="5AB9AC83-4098-EDAA-E634-E79F040F9BE6">
@@ -130,9 +115,8 @@
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>2CE182C6-6C80-1FE7-3B69-77AD95D12513</attributeRef>
-<attributeRef>A4BE1EED-787D-F70E-D8A5-ABFCC12C80AE</attributeRef>
 <attributeRef>D3B2E924-C7F4-4A6C-AA3B-3A7F05258E82</attributeRef>
+<attributeRef>5EC9E7A2-1565-000B-7A56-025137FCCB71</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
