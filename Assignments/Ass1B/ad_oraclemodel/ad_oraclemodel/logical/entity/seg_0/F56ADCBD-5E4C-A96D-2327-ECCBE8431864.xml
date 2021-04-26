@@ -42,9 +42,9 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="pet_id" id="C043163B-AD47-E279-03D2-61543CB5C826">
+<Attribute name="pet_id" id="80F1715B-0CA8-AFF2-7A10-36F2CB5D072E">
 <createdBy>mlim0032</createdBy>
-<createdTime>2021-04-25 01:25:03 UTC</createdTime>
+<createdTime>2021-04-26 07:11:31 UTC</createdTime>
 <commentInRDBMS><![CDATA[pet id]]></commentInRDBMS>
 <generatorID>772DD4CD-49AF-3558-5B2F-1002DBAB4F10</generatorID>
 <ownerDesignName>ad_oraclemodel</ownerDesignName>
@@ -135,8 +135,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>6</dataTypePrecision>
-<dataTypeSize>6</dataTypeSize>
-<ownDataTypeParameters>6,,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="clinic_id" id="C256BD62-81EE-779C-C4E9-AAA2A15556F8">
 <createdBy>mlim0032</createdBy>
@@ -195,7 +194,7 @@
 <newElementsIDs>ABF89B59-2DDA-495F-49D6-2426D5A271ED,772DD4CD-49AF-3558-5B2F-1002DBAB4F10</newElementsIDs>
 <usedAttributes>
 <attributeRef>ABF89B59-2DDA-495F-49D6-2426D5A271ED</attributeRef>
-<attributeRef>C043163B-AD47-E279-03D2-61543CB5C826</attributeRef>
+<attributeRef>80F1715B-0CA8-AFF2-7A10-36F2CB5D072E</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>
