@@ -61,16 +61,79 @@ CREATE TABLE animal (
     CONSTRAINT spec_animal_fk FOREIGN KEY (spec_genus, spec_name) REFERENCES species (spec_genus, spec_name)
 );
 
+COMMENT ON COLUMN animal.animal_id IS
+    'The identifier for the animal';
 
---ALTER TABLE enrolment
---    ADD CONSTRAINT unit_enrolment_fk FOREIGN KEY ( unit_code )
---        REFERENCES unit ( unit_code );
+COMMENT ON COLUMN animal.animal_sex IS
+    'The animal sex (M of F)';
+    
+COMMENT ON COLUMN animal.brevent_id IS
+    'If bred in captivity (i.e. at a centre), the id of the breeding event 
+    which produced the animal. Animals which have been captured
+    from the wild will have no brevent_id assigned';
+   
+COMMENT ON COLUMN animal.centre_id IS
+    'The "home" center where the animal is normally located.
+    Animals are sometimes located at other centres for a breeding
+    event'; 
+    
+COMMENT ON COLUMN animal.spec_genus IS
+    'The species genus for the animal';
+    
+COMMENT ON COLUMN animal.spec_name IS
+    'The species name for the animal';
+    
+    
+CREATE TABLE breeding_event (
+    brevent_id NUMERIC(6) NOT NULL,
+    brevent_date Date NOT NULL,
+    mother_id NUMERIC(6) NOT NULL,
+    father_id NUMERIC(6) NOT NULL,
+    CONSTRAINT brevent_pk PRIMARY KEY (brevent_id),
+    CONSTRAINT animal_brevent_mother_fk FOREIGN KEY (mother_id) REFERENCES animal (animal_id),
+    CONSTRAINT animal_brevent_father_fk FOREIGN KEY (father_id) REFERENCES animal (animal_id)
+);
 
---this below add AFTER creating table centre and breeding_event
+COMMENT ON COLUMN breeding_event.brevent_id IS
+    'The identifier for the breeding event';
+    
+COMMENT ON COLUMN breeding_event.brevent_date IS
+    'The date on which the breeding event took place';
+    
+COMMENT ON COLUMN breeding_event.mother_id IS
+    'The animal_id of the animal who was the mother';
+    
+COMMENT ON COLUMN breeding_event.father_id IS
+    'The animal_id of the animal who was the father';
+    
+    
+CREATE TABLE centre (
+    centre_id CHAR(6) NOT NULL,
+    centre_name VARCHAR(40) NOT NULL,
+    centre_address VARCHAR(100) NOT NULL,
+    centre_director VARCHAR(30) NOT NULL,
+    centre_phone_no VARCHAR(20) NOT NULL,
+    CONSTRAINT centre_pk PRIMARY KEY (centre_id),
+    CONSTRAINT centre_un UNIQUE (centre_name)
+);
+
+COMMENT ON COLUMN centre.centre_id IS
+    'The identifier for the center';
+    
+COMMENT ON COLUMN centre.centre_name IS
+    'The centre name';
+    
+COMMENT ON COLUMN centre.centre_address IS
+    'The centre address';
+    
+COMMENT ON COLUMN centre.centre_director IS
+    'The name of the centres director';
+    
+COMMENT ON COLUMN centre.centre_phone_no IS
+    'The centres phone contact number';
+
 ALTER TABLE animal
     ADD (
-        CONSTRAINT spec_genus_animal_fk FOREIGN KEY (spec_genus) REFERENCES species (spec_genus),
-        CONSTRAINT spec_name_animal_fk FOREIGN KEY (spec_name) REFERENCES species (spec_name),
         CONSTRAINT brevent_animal_fk FOREIGN KEY (brevent_id) REFERENCES breeding_event (brevent_id),
         CONSTRAINT centre_animal_fk FOREIGN KEY (centre_id) REFERENCES centre (centre_id)
         );
