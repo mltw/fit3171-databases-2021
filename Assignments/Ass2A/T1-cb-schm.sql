@@ -18,10 +18,10 @@ file, create an SQL schema file which can be used to create this database in
 Oracle.
 */
 --PLEASE PLACE REQUIRED SQL STATEMENT(S) BELOW
-DROP TABLE species PURGE;
-DROP TABLE animal PURGE;
-DROP TABLE centre PURGE;
-DROP TABLE breeding_event PURGE;
+DROP TABLE species CASCADE CONSTRAINTS PURGE;
+DROP TABLE animal CASCADE CONSTRAINTS PURGE;
+DROP TABLE centre CASCADE CONSTRAINTS PURGE;
+DROP TABLE breeding_event CASCADE CONSTRAINTS PURGE;
 
 CREATE TABLE species (
     spec_genus VARCHAR(20) NOT NULL,
@@ -132,27 +132,10 @@ COMMENT ON COLUMN centre.centre_director IS
 COMMENT ON COLUMN centre.centre_phone_no IS
     'The centres phone contact number';
 
+
 ALTER TABLE animal
     ADD (
         CONSTRAINT brevent_animal_fk FOREIGN KEY (brevent_id) REFERENCES breeding_event (brevent_id),
         CONSTRAINT centre_animal_fk FOREIGN KEY (centre_id) REFERENCES centre (centre_id)
         );
-
---ALTER TABLE vendor ADD CONSTRAINT vendor_pk PRIMARY KEY ( vendor_id );
---ALTER TABLE vendor ADD CONSTRAINT vendor_un UNIQUE ( vendor_name );
---CREATE TABLE student (
---    stu_nbr     NUMBER(8) NOT NULL,
---    stu_lname   VARCHAR2(50) NOT NULL,
---    stu_fname   VARCHAR2(50) NOT NULL,
---    stu_dob     DATE NOT NULL,
---    CONSTRAINT student_pk PRIMARY KEY ( stu_nbr ),
---    CONSTRAINT ck_stu_nbr CHECK ( stu_nbr > 10000000 )
---);
---
---COMMENT ON COLUMN student.stu_nbr IS
---    'Student number';
---
---COMMENT ON COLUMN student.stu_lname IS
---    'Student last name';
-
 
