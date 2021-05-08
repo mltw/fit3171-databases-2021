@@ -24,11 +24,11 @@ DROP TABLE centre CASCADE CONSTRAINTS PURGE;
 DROP TABLE breeding_event CASCADE CONSTRAINTS PURGE;
 
 CREATE TABLE species (
-    spec_genus VARCHAR(20) NOT NULL,
-    spec_name VARCHAR(20) NOT NULL,
-    spec_popular_name VARCHAR(40) NOT NULL,
-    spec_family VARCHAR(20) NOT NULL,
-    spec_natural_range VARCHAR(100) NOT NULL,
+    spec_genus VARCHAR2(20) NOT NULL,
+    spec_name VARCHAR2(20) NOT NULL,
+    spec_popular_name VARCHAR2(40) NOT NULL,
+    spec_family VARCHAR2(20) NOT NULL,
+    spec_natural_range VARCHAR2(100) NOT NULL,
     CONSTRAINT spec_pk PRIMARY KEY (spec_genus, spec_name),
     CONSTRAINT spec_un UNIQUE (spec_popular_name)
 );
@@ -54,8 +54,8 @@ CREATE TABLE animal (
     animal_sex CHAR(1) NOT NULL,
     brevent_id NUMERIC(6),
     centre_id CHAR(6) NOT NULL,
-    spec_genus VARCHAR(20) NOT NULL,
-    spec_name VARCHAR(20) NOT NULL,
+    spec_genus VARCHAR2(20) NOT NULL,
+    spec_name VARCHAR2(20) NOT NULL,
     CONSTRAINT animal_pk PRIMARY KEY (animal_id),
     CONSTRAINT ck_animal_sex CHECK ( animal_sex IN ('M', 'F')),
     CONSTRAINT spec_animal_fk FOREIGN KEY (spec_genus, spec_name) REFERENCES species (spec_genus, spec_name)
@@ -109,10 +109,10 @@ COMMENT ON COLUMN breeding_event.father_id IS
     
 CREATE TABLE centre (
     centre_id CHAR(6) NOT NULL,
-    centre_name VARCHAR(40) NOT NULL,
-    centre_address VARCHAR(100) NOT NULL,
-    centre_director VARCHAR(30) NOT NULL,
-    centre_phone_no VARCHAR(20) NOT NULL,
+    centre_name VARCHAR2(40) NOT NULL,
+    centre_address VARCHAR2(100) NOT NULL,
+    centre_director VARCHAR2(30) NOT NULL,
+    centre_phone_no VARCHAR2(20) NOT NULL,
     CONSTRAINT centre_pk PRIMARY KEY (centre_id),
     CONSTRAINT centre_un UNIQUE (centre_name)
 );
