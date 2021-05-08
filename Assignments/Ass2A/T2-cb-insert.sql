@@ -161,3 +161,5 @@ INSERT INTO animal VALUES(
     'Myrmecobius',
     'fasciatus'
 );
+
+commit;
