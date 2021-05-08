@@ -84,7 +84,7 @@ INSERT INTO animal VALUES(
     7,
     'M',
     null,
-    'SAF20',
+    'SAF30',
     'Panthera',
     'leo'
 );
@@ -93,7 +93,7 @@ INSERT INTO animal VALUES(
     8,
     'F',
     null,
-    'SAF20',
+    'SAF30',
     'Panthera',
     'leo'
 );
@@ -125,7 +125,7 @@ INSERT INTO animal VALUES(
     10,
     'F',
     2,
-    'SAF20',
+    'SAF30',
     'Panthera',
     'leo'
 );
