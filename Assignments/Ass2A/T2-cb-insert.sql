@@ -101,7 +101,7 @@ INSERT INTO animal VALUES(
 -- breed 1 with animal 9
 INSERT INTO breeding_event VALUES(
     1,
-    '10-Jan-2020',
+    to_date('10-Jan-2020'),
     6,
     5
 );
@@ -117,7 +117,7 @@ INSERT INTO animal VALUES(
 -- breed 2 with animal 10
 INSERT INTO breeding_event VALUES(
     2,
-    '31-Mar-2020',
+    to_date('31-Mar-2020'),
     8,
     7
 );
@@ -133,7 +133,7 @@ INSERT INTO animal VALUES(
 -- breed 3 with animal 11
 INSERT INTO breeding_event VALUES(
     3,
-    '1-Apr-2020',
+    to_date('1-Apr-2020'),
     3,
     4
 );
@@ -149,10 +149,11 @@ INSERT INTO animal VALUES(
 -- breed 4 with animal 12
 INSERT INTO breeding_event VALUES(
     4,
-    '10-Oct-2020',
+    to_date('10-Oct-2020'),
     2,
     1
 );
+
 INSERT INTO animal VALUES(
     12,
     'F',
