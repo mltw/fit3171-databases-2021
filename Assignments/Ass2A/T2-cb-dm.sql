@@ -59,7 +59,7 @@ INSERT INTO animal VALUES(
 -- (iv)
 INSERT INTO breeding_event VALUES(
     BREVENT_SEQ.nextval,
-    '10-Feb-2021',
+    to_date('10-Feb-2021'),
     (SELECT a.animal_id FROM animal a 
         WHERE (
                a.spec_genus = (SELECT s.spec_genus FROM species s WHERE s.spec_popular_name = 'Tasmanian Devil')
