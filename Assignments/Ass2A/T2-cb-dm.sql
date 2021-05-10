@@ -26,12 +26,16 @@ CREATE SEQUENCE animal_seq START WITH 500 INCREMENT BY 1;
 DROP SEQUENCE brevent_seq;
 CREATE SEQUENCE brevent_seq START WITH 500 INCREMENT BY 1;
 
+commit;
+
 -- (ii)
 UPDATE animal
   SET animal.centre_id = (SELECT c.centre_id FROM centre c WHERE c.centre_name = 'Kruger National Park')
   WHERE animal.centre_id = (SELECT c.centre_id FROM centre c WHERE c.centre_name = 'SanWild Wildlife Sanctuary');
 
 DELETE FROM centre WHERE centre_name = 'SanWild Wildlife Sanctuary';
+
+commit;
 
 -- (iii)
 INSERT INTO animal VALUES(
@@ -103,3 +107,5 @@ INSERT INTO animal VALUES(
     (SELECT s.spec_genus FROM species s WHERE s.spec_popular_name = 'Tasmanian Devil'),
     (SELECT s.spec_name FROM species s WHERE s.spec_popular_name = 'Tasmanian Devil')
 );
+
+commit;
