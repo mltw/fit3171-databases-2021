@@ -26,8 +26,6 @@ CREATE SEQUENCE animal_seq START WITH 500 INCREMENT BY 1;
 DROP SEQUENCE brevent_seq;
 CREATE SEQUENCE brevent_seq START WITH 500 INCREMENT BY 1;
 
-commit;
-
 -- (ii)
 UPDATE animal
   SET animal.centre_id = (SELECT c.centre_id FROM centre c WHERE c.centre_name = 'Kruger National Park')
@@ -55,6 +53,8 @@ INSERT INTO animal VALUES(
     (SELECT s.spec_genus FROM species s WHERE s.spec_popular_name = 'Tasmanian Devil'),
     (SELECT s.spec_name FROM species s WHERE s.spec_popular_name = 'Tasmanian Devil')
 );
+
+commit;
 
 -- (iv)
 INSERT INTO breeding_event VALUES(
