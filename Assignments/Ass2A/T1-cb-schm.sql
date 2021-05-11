@@ -48,9 +48,9 @@ COMMENT ON COLUMN species.spec_natural_range IS
 DROP TABLE animal CASCADE CONSTRAINTS PURGE;
 
 CREATE TABLE animal (
-    animal_id NUMERIC(6) NOT NULL,
+    animal_id NUMBER(6) NOT NULL,
     animal_sex CHAR(1) NOT NULL,
-    brevent_id NUMERIC(6),
+    brevent_id NUMBER(6),
     centre_id CHAR(6) NOT NULL,
     spec_genus VARCHAR2(20) NOT NULL,
     spec_name VARCHAR2(20) NOT NULL,
@@ -85,10 +85,10 @@ COMMENT ON COLUMN animal.spec_name IS
 DROP TABLE breeding_event CASCADE CONSTRAINTS PURGE;
 
 CREATE TABLE breeding_event (
-    brevent_id NUMERIC(6) NOT NULL,
+    brevent_id NUMBER(6) NOT NULL,
     brevent_date Date NOT NULL,
-    mother_id NUMERIC(6) NOT NULL,
-    father_id NUMERIC(6) NOT NULL,
+    mother_id NUMBER(6) NOT NULL,
+    father_id NUMBER(6) NOT NULL,
     CONSTRAINT brevent_pk PRIMARY KEY (brevent_id),
     CONSTRAINT animal_brevent_mother_fk FOREIGN KEY (mother_id) REFERENCES animal (animal_id),
     CONSTRAINT animal_brevent_father_fk FOREIGN KEY (father_id) REFERENCES animal (animal_id)
