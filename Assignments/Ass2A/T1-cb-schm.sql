@@ -19,9 +19,6 @@ Oracle.
 */
 --PLEASE PLACE REQUIRED SQL STATEMENT(S) BELOW
 DROP TABLE species CASCADE CONSTRAINTS PURGE;
-DROP TABLE animal CASCADE CONSTRAINTS PURGE;
-DROP TABLE centre CASCADE CONSTRAINTS PURGE;
-DROP TABLE breeding_event CASCADE CONSTRAINTS PURGE;
 
 CREATE TABLE species (
     spec_genus VARCHAR2(20) NOT NULL,
@@ -48,7 +45,8 @@ COMMENT ON COLUMN species.spec_family IS
 COMMENT ON COLUMN species.spec_natural_range IS
     'Description of the natural range of the species';
     
-    
+DROP TABLE animal CASCADE CONSTRAINTS PURGE;
+
 CREATE TABLE animal (
     animal_id NUMERIC(6) NOT NULL,
     animal_sex CHAR(1) NOT NULL,
@@ -83,7 +81,9 @@ COMMENT ON COLUMN animal.spec_genus IS
 COMMENT ON COLUMN animal.spec_name IS
     'The species name for the animal';
     
-    
+
+DROP TABLE breeding_event CASCADE CONSTRAINTS PURGE;
+
 CREATE TABLE breeding_event (
     brevent_id NUMERIC(6) NOT NULL,
     brevent_date Date NOT NULL,
@@ -106,7 +106,8 @@ COMMENT ON COLUMN breeding_event.mother_id IS
 COMMENT ON COLUMN breeding_event.father_id IS
     'The animal_id of the animal who was the father';
     
-    
+DROP TABLE centre CASCADE CONSTRAINTS PURGE;
+
 CREATE TABLE centre (
     centre_id CHAR(6) NOT NULL,
     centre_name VARCHAR2(40) NOT NULL,
@@ -138,4 +139,3 @@ ALTER TABLE animal
         CONSTRAINT brevent_animal_fk FOREIGN KEY (brevent_id) REFERENCES breeding_event (brevent_id),
         CONSTRAINT centre_animal_fk FOREIGN KEY (centre_id) REFERENCES centre (centre_id)
         );
-
