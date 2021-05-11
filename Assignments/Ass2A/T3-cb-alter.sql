@@ -6,7 +6,9 @@
 --Tutorial No: Tutorial 1, Fri 4-6pm
 
 /* Comments for your marker:
-task3c: due to us not being able to use subquery when setting a defualt value for a column,
+task 3c: 
+Sequence for centre_type_id starts with 100, and increases by 1.
+Also, due to us not being able to use subquery when setting a defualt value for a column,
 I've assumed that the centre type of 'Other' would always have a PK of 100 (thus the hardcoded
 value when setting the default)
 
@@ -72,7 +74,7 @@ CREATE TABLE centre_type (
 );
 
 COMMENT ON COLUMN centre_type.centre_type_id IS
-    'The identifier for thecentre type.';
+    'The identifier for the centre type.';
     
 COMMENT ON COLUMN centre_type.centre_type_desc IS
     'The type of centre.'; 
@@ -97,6 +99,8 @@ INSERT INTO centre_type VALUES(
     CENTRE_TYPE_SEQ.nextval,
     'Nature Reserve'
 );
+
+commit;
 
 ALTER TABLE centre ADD(
     centre_type_id NUMBER(6) DEFAULT 100 NOT NULL,
