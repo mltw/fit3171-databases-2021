@@ -6,7 +6,9 @@
 --Tutorial No: Tutorial 1, Fri 4-6pm
 
 /* Comments for your marker:
-
+task3c: due to us not being able to use subquery when setting a defualt value for a column,
+I've assumed that the centre type of 'Other' would always have a PK of 100 (thus the hardcoded
+value when setting the default)
 
 
 
@@ -21,13 +23,11 @@ Make the listed changes to the "live" database
 
 -- (a)
 ALTER TABLE centre ADD(
-    centre_total_offspring NUMERIC(4) DEFAULT 0 NOT NULL
+    centre_total_offspring NUMBER(4) DEFAULT 0 NOT NULL
 );
 
 COMMENT ON COLUMN centre.centre_total_offspring IS
     'Total number of offsrping born at the centre. Default is 0.';
-
-COMMIT;
 
 -- (b)
 /*
@@ -44,10 +44,8 @@ relevant/related rows, it will cause data loss, leading the data stored to be in
 Also, we should do a commit at the end when the transaction is done, so as to preserve
 the Atomicity and Isolation property.
 */
--- check before
 select * from animal;
 
--- make edits
 ALTER TABLE animal ADD(
     animal_alive CHAR(1) DEFAULT 'Y' NOT NULL,
     CONSTRAINT ck_animal_alive CHECK (animal_alive IN ('Y','N'))
@@ -59,32 +57,69 @@ WHERE animal_id = 12;
 
 commit;
 
--- check after 
 select * from animal;
 
 -- (c)
-ALTER TABLE centre ADD(
-    centre_type VARCHAR2(100) DEFAULT 'Other' NOT NULL
+DROP SEQUENCE centre_type_seq;
+CREATE SEQUENCE centre_type_seq START WITH 100 INCREMENT BY 1;
+
+DROP TABLE centre_type CASCADE CONSTRAINTS PURGE;
+
+CREATE TABLE centre_type (
+    centre_type_id NUMBER(6) NOT NULL,
+    centre_type_desc VARCHAR2(100) NOT NULL,
+    CONSTRAINT centre_type_pk PRIMARY KEY (centre_type_id)
 );
 
-COMMENT ON COLUMN centre.centre_type IS
-    'The type of centre. Standard types are: Zoo, Wildlife Park, Sanctuary, Nature Reserve and Other. Can be 
-    modified/extended. ';
+COMMENT ON COLUMN centre_type.centre_type_id IS
+    'The identifier for thecentre type.';
+    
+COMMENT ON COLUMN centre_type.centre_type_desc IS
+    'The type of centre.'; 
+    
+INSERT INTO centre_type VALUES(
+    CENTRE_TYPE_SEQ.nextval,
+    'Other'
+);
+INSERT INTO centre_type VALUES(
+    CENTRE_TYPE_SEQ.nextval,
+    'Zoo'
+);
+INSERT INTO centre_type VALUES(
+    CENTRE_TYPE_SEQ.nextval,
+    'Wildlife Park'
+);
+INSERT INTO centre_type VALUES(
+    CENTRE_TYPE_SEQ.nextval,
+    'Sanctuary'
+);
+INSERT INTO centre_type VALUES(
+    CENTRE_TYPE_SEQ.nextval,
+    'Nature Reserve'
+);
+
+ALTER TABLE centre ADD(
+    centre_type_id NUMBER(6) DEFAULT 100 NOT NULL,
+    CONSTRAINT centre_type_centre_fk FOREIGN KEY (centre_type_id) REFERENCES centre_type (centre_type_id)
+);
+
+COMMENT ON COLUMN centre.centre_type_id IS
+    'The identifier for the centre type. ';
 
 UPDATE centre 
-SET centre_type ='Zoo'
+SET centre_type_id = (SELECT c.centre_type_id FROM centre_type c WHERE c.centre_type_desc = 'Zoo')
 WHERE centre_name LIKE '%Zoo%';
 
 UPDATE centre 
-SET centre_type ='Wildlife Park'
+SET centre_type_id = (SELECT c.centre_type_id FROM centre_type c WHERE c.centre_type_desc = 'Wildlife Park')
 WHERE centre_name LIKE '%Park%';
 
 UPDATE centre 
-SET centre_type ='Sanctuary'
+SET centre_type_id =(SELECT c.centre_type_id FROM centre_type c WHERE c.centre_type_desc = 'Sanctuary')
 WHERE centre_name LIKE '%Sanctuary%';
 
 UPDATE centre 
-SET centre_type ='Nature Reserve'
+SET centre_type_id = (SELECT c.centre_type_id FROM centre_type c WHERE c.centre_type_desc = 'Nature Reserve')
 WHERE centre_name LIKE '%Reserve%';
 
 commit;
