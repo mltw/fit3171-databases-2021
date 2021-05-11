@@ -6,7 +6,7 @@
 --Tutorial No:  Tutorial 1, Fri 4-6pm
 
 /* Comments for your marker:
-
+inserted 8 animals from the wild; 4 animals from 4 breeding events respectively
 
 
 
@@ -25,7 +25,6 @@ Your inserted rows must meet the assignment specification requirements
 */
 --PLEASE PLACE REQUIRED SQL STATEMENT(S) BELOW
 
--- insert 8 animals from the wild
 INSERT INTO animal VALUES(
     1,
     'M',
@@ -98,7 +97,6 @@ INSERT INTO animal VALUES(
     'leo'
 );
 
--- breed 1 with animal 9
 INSERT INTO breeding_event VALUES(
     1,
     to_date('10-Jan-2020'),
@@ -114,7 +112,6 @@ INSERT INTO animal VALUES(
     'grevyi'
 );
 
--- breed 2 with animal 10
 INSERT INTO breeding_event VALUES(
     2,
     to_date('31-Mar-2020'),
@@ -130,7 +127,6 @@ INSERT INTO animal VALUES(
     'leo'
 );
 
--- breed 3 with animal 11
 INSERT INTO breeding_event VALUES(
     3,
     to_date('1-Apr-2020'),
@@ -146,7 +142,6 @@ INSERT INTO animal VALUES(
     'harrisii'
 );
 
--- breed 4 with animal 12
 INSERT INTO breeding_event VALUES(
     4,
     to_date('10-Oct-2020'),
