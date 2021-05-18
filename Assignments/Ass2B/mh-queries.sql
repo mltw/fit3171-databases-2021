@@ -38,14 +38,29 @@ ORDER BY ch.charter_nbr;
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
-
+SELECT ch.charter_nbr, 
+        nullif((cl.client_fname || ' '),' ') || cl.client_lname AS FULLNAME,
+        ch.charter_cost_per_hour
+FROM ((MH.charter ch JOIN MH.client cl ON ch.client_nbr = cl.client_nbr)
+      JOIN MH.charter_leg chl ON ch.charter_nbr = chl.charter_nbr)
+      JOIN MH.location lc ON (chl.location_nbr_origin = lc.location_nbr
+                              OR
+                              chl.location_nbr_destination = lc.location_nbr)
+WHERE lc.location_name = 'Mount Doom'
+      AND
+      (ch.charter_cost_per_hour < 1000 OR ch.charter_special_reqs IS NULL)
+ORDER BY FULLNAME DESC;
 
 /*
     Q4
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
-
+SELECT ht.ht_nbr, ht.ht_name, count(h.heli_callsign)
+FROM (MH.helicopter_type ht LEFT OUTER JOIN MH.helicopter h ON ht.ht_nbr = h.ht_nbr)
+GROUP BY ht.ht_nbr, ht.ht_name
+HAVING count(h.heli_callsign) >= 2
+ORDER BY count(h.heli_callsign) DESC;
 
 /*
     Q5
