@@ -1,0 +1,66 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4756A72D-A14F-1CCB-7A3D-5FB7FF1ABB3C" name="SERVICE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>A7BF712B-C660-1BC7-6139-3BE356B2ABAE</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="service_code" id="7A0449B0-0B88-363D-75E2-6D3C05499EE6">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[service code]]></commentInRDBMS>
+<generatorID>5193B681-FD95-C97B-C082-F98E65799125</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="service_desc" id="A3F4DBA1-A6D0-25DF-0874-F90F9C262CD3">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[service description]]></commentInRDBMS>
+<generatorID>A147D782-B0FF-2448-24FA-66A187670B36</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="service_standard_cost" id="B01138ED-A02A-EEA5-EFB8-B8B30B199AFC">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[service standard cost]]></commentInRDBMS>
+<generatorID>BA444974-5C00-5FF4-FB78-EE49813FF743</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,6,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="0F62599E-2121-B7AA-698C-B99C77E9CBB1" name="SERVICE_PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>DEB38B58-7392-A490-4839-2ED4A8535627</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7A0449B0-0B88-363D-75E2-6D3C05499EE6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

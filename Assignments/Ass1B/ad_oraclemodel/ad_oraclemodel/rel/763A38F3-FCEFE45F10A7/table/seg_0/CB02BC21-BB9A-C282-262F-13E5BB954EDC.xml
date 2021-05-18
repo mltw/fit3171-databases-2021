@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CB02BC21-BB9A-C282-262F-13E5BB954EDC" name="PET_TYPE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>4471219E-9C8F-DB2A-2FF7-050AD34989AB</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="pet_type_code" id="C083B12B-6A64-D4EE-9F3E-B0C015EFDD4F">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet type code]]></commentInRDBMS>
+<generatorID>FEECC16D-DA6E-54DB-1723-9162D0447DD8</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pet_type_name" id="6D5364B0-9EE4-32BB-BC0F-ECE3A32A6BBB">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[pet type name]]></commentInRDBMS>
+<generatorID>F2CFF928-3401-7B21-E349-7439451788AB</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DCA5B117-0F9A-4E9A-3A3F-B6BA996EE2D2" name="PET_TYPE_PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>351548F7-18F6-3E3F-B2FA-6968800D5C4F</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C083B12B-6A64-D4EE-9F3E-B0C015EFDD4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

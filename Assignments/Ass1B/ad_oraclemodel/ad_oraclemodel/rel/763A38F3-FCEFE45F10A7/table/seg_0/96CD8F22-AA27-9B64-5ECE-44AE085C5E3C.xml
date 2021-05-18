@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="96CD8F22-AA27-9B64-5ECE-44AE085C5E3C" name="VISIT_SERVICE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>01F804C0-0823-0759-07A4-38B731EBAA12</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="visit_id" id="B9A39B5B-8372-0E41-A80A-3218C246CF5F">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[visit id (surrogate PK)]]></commentInRDBMS>
+<generatorID>34296A3F-1535-A049-13E7-9941E7C67875</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8D7005B9-A0F5-0773-122C-3E473F4DEAD3" referredColumn="3EFD5621-807D-1131-9371-13511A7DF600"/>
+</associations>
+</Column>
+<Column name="service_code" id="B2395BD0-6D75-ED79-6780-B06777866530">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[service code]]></commentInRDBMS>
+<generatorID>884006D3-F963-3934-8751-7CEE5A1D2022</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C0DBDD63-FC24-45E0-8DC3-38AFF8EFB3A6" referredColumn="7A0449B0-0B88-363D-75E2-6D3C05499EE6"/>
+</associations>
+</Column>
+<Column name="visit_service_cost" id="514A850A-819F-BDB4-E4E7-CB5EB2F3B68B">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[cost of service in that visit]]></commentInRDBMS>
+<generatorID>A02053C6-7649-36B0-A759-A2102AB02679</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D5032057-0B1A-6CD1-9146-B2AC72FAB3BC" name="VISIT_SERVICE_PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>99655500-0F69-2CDF-8314-A157DB78B046</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2395BD0-6D75-ED79-6780-B06777866530"/>
+<colUsage columnID="B9A39B5B-8372-0E41-A80A-3218C246CF5F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DCF4C3E5-09D5-5F5D-5059-C4AA217541DE" name="SERVICE_VISITSERVICE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>FC544CCA-F33C-E834-8DB5-6BF16DD10255</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B2395BD0-6D75-ED79-6780-B06777866530"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F626D86-E7DE-0C32-DD4D-0FA63CD71C43" name="VISIT_VISITSERVICE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>F25FEFBF-64B9-AEA4-1C4C-3CB896847F52</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B9A39B5B-8372-0E41-A80A-3218C246CF5F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

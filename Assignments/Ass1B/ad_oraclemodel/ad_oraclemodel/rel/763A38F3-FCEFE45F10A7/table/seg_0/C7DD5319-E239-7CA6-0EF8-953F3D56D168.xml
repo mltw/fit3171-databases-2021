@@ -1,0 +1,148 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C7DD5319-E239-7CA6-0EF8-953F3D56D168" name="VET">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>2BE9E443-8A28-87FF-ECC9-2E67E88D0720</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="vet_id" id="33CA487B-0111-AC0D-DF84-8380C7158200">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet id]]></commentInRDBMS>
+<generatorID>D674579F-2B7E-31F3-E21E-978C857AAC44</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,6,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vet_givname" id="FDC94C46-D553-AF7C-071D-7A305A0960CD">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet given name]]></commentInRDBMS>
+<generatorID>8F67C34D-250B-CE72-A657-83DCEC5282B7</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vet_famname" id="ACF396D6-A190-A9F2-4F1B-9BF4A97A7D70">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet family name]]></commentInRDBMS>
+<generatorID>1A135356-738A-57CF-1A67-0750D6E77FA5</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vet_phone" id="BFE7D36C-EA37-E326-9BB1-AEFA9E505E7B">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet phone number]]></commentInRDBMS>
+<generatorID>6851FC2C-71D1-621A-5D65-F8D423FEA6EE</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vet_employdate" id="7AD335EC-DF88-99C1-D9BA-E9963EF69BDE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet's first employed date]]></commentInRDBMS>
+<generatorID>ABE32E36-EC8A-7FD7-FA54-BB425F8F581D</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="clinic_id" id="02119AFE-05F2-98DB-5592-24520A4984D5">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[clinic id]]></commentInRDBMS>
+<generatorID>7D9B0242-6BF5-25D3-0ADD-C542FD3EF73A</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C3885C4E-FD09-F253-0EED-9DDBF7DBEDFE" referredColumn="B8355475-0A44-5D1E-143E-DB35D35B47F3"/>
+</associations>
+</Column>
+<Column name="spec_code" id="281161C1-A028-525F-241D-BF6A49AE6705">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[area of specialisation code ]]></commentInRDBMS>
+<generatorID>00DC09D9-3A11-A108-521B-B165800806A7</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DB9F0C9D-45D5-E2EF-3A1F-D71BB03E1C21" referredColumn="991B92B8-A90A-526F-F28E-C37DF07B89C0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E735FDC0-3BE3-43DE-6612-73BCC4B66AB1" name="VET_PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>53071333-68BC-E482-3566-CEA4FB8E882B</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="33CA487B-0111-AC0D-DF84-8380C7158200"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B835F573-288A-6AA9-47D1-3A614B36E985" name="CLINIC_VET">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>AFF5DE38-4477-8954-922A-7552FC5E95EB</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="02119AFE-05F2-98DB-5592-24520A4984D5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A4BB4640-A66C-33C4-93BD-1AC034A59AF1" name="SPECIALISATION_VET">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>B95D3665-F413-DB2A-7163-ABAB8130CF0C</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="281161C1-A028-525F-241D-BF6A49AE6705"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

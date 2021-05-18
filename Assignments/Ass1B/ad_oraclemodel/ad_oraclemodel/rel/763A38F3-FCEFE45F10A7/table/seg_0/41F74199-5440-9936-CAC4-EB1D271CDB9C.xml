@@ -1,0 +1,97 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="41F74199-5440-9936-CAC4-EB1D271CDB9C" name="ROVE">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>F8A3A366-DCBB-833D-3D50-4D183AC1340F</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="vet_id" id="E0C88690-E81A-6D71-2AD6-565A30FC14C0">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[vet id]]></commentInRDBMS>
+<generatorID>9FD45127-DC93-98B0-B480-7969E5D8470F</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="467F91EF-2653-525A-62C8-FE66E8F21948" referredColumn="33CA487B-0111-AC0D-DF84-8380C7158200"/>
+</associations>
+</Column>
+<Column name="clinic_id" id="62E34C05-8146-C562-E377-DC17171AB8B2">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[clinic id]]></commentInRDBMS>
+<generatorID>9E5419B3-9161-4770-F2FA-DB80F719F142</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D23EE993-55F7-723F-7AE5-A2404ECB2C78" referredColumn="B8355475-0A44-5D1E-143E-DB35D35B47F3"/>
+</associations>
+</Column>
+<Column name="rove_count" id="7C94ED3B-9673-E79F-AF8A-3E0EB49E42B7">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<commentInRDBMS><![CDATA[number of times a specialised vet serviced in a clinic, which is not their home clinic]]></commentInRDBMS>
+<generatorID>5CD87DD2-61E5-2156-CCF3-68F196527271</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="202BD974-7D15-9B6B-266E-1DABDF6F0EF2" name="ROVING_PK">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>CB4B9118-F2FE-AA43-3F54-1CD5A7699175</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E0C88690-E81A-6D71-2AD6-565A30FC14C0"/>
+<colUsage columnID="62E34C05-8146-C562-E377-DC17171AB8B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A6930A6F-2262-3B12-FB2B-0A5EC278AC66" name="CLINIC_ROVING">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>3852ECF1-FCDA-5D53-CFB4-442CBFFD1393</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="62E34C05-8146-C562-E377-DC17171AB8B2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3BF3BED8-B42E-E2EB-2CC9-704428DEF9DA" name="VET_ROVING">
+<createdBy>mlim0032</createdBy>
+<createdTime>2021-04-26 07:34:27 UTC</createdTime>
+<generatorID>20143423-AAE4-9CC9-789F-5E755598A93A</generatorID>
+<ownerDesignName>ad_oraclemodel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E0C88690-E81A-6D71-2AD6-565A30FC14C0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
