@@ -67,13 +67,21 @@ ORDER BY count(h.heli_callsign) DESC;
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
-
+SELECT cl.location_nbr_origin, l.location_name, count(cl.location_nbr_origin)
+FROM (MH.charter_leg cl LEFT OUTER JOIN MH.location l ON cl.location_nbr_origin = l.location_nbr)
+GROUP BY cl.location_nbr_origin, l.location_name
+HAVING count(cl.location_nbr_origin) > 1
+ORDER BY count(cl.location_nbr_origin);
 
 /*
     Q6
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
+SELECT ht.ht_nbr, ht.ht_name, NVL(SUM(h.heli_hrs_flown),0)
+FROM (MH.helicopter_type ht LEFT OUTER JOIN MH.helicopter h ON ht.ht_nbr = h.ht_nbr)
+GROUP BY ht.ht_nbr, ht.ht_name
+ORDER BY NVL(SUM(h.heli_hrs_flown),0);
 
 
 /*
