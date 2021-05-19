@@ -89,6 +89,14 @@ ORDER BY NVL(SUM(h.heli_hrs_flown),0);
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
+SELECT cl.charter_nbr, to_char(cl.cl_atd, 'DD Mon YYYY HH24:MI:SS')
+FROM ((MH.employee e JOIN MH.charter c ON e.emp_nbr = c.emp_nbr)
+       JOIN
+       MH.charter_leg cl ON c.charter_nbr = cl.charter_nbr)
+WHERE e.emp_fname = 'Frodo' AND e.emp_lname = 'Baggins'
+      AND
+      cl.cl_leg_nbr = 1
+ORDER BY cl.cl_atd DESC;
 
 
 /*
@@ -97,6 +105,18 @@ ORDER BY NVL(SUM(h.heli_hrs_flown),0);
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
 
+SELECT ch.charter_nbr, ch.client_nbr, NVL(cl.client_lname, '-'), NVL(cl.client_fname, '-'),
+        ((to_char(chl.cl_ata, 'HH') - to_char(chl.cl_atd, 'HH')) * ch.charter_cost_per_hour) AS "TOTALCHARTERCOST"
+--select * 
+FROM ((MH.client cl JOIN MH.charter ch ON cl.client_nbr = ch.client_nbr)
+       JOIN
+       MH.charter_leg chl ON ch.charter_nbr = chl.charter_nbr)
+where ((to_char(chl.cl_ata, 'HH') - to_char(chl.cl_atd, 'HH')) * ch.charter_cost_per_hour) 
+        <
+--        AVG((to_char(chl.cl_ata, 'HH') - to_char(chl.cl_atd, 'HH')) * ch.charter_cost_per_hour) ;   
+        any(select avg((to_char(chl.cl_ata, 'HH') - to_char(chl.cl_atd, 'HH')) * ch.charter_cost_per_hour) 
+        from (MH.charter_leg chl JOIN MH.charter ch on ch.charter_nbr = chl.charter_nbr)
+        GROUP BY ch.charter_nbr);
 
 /*
     Q9
