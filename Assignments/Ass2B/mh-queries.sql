@@ -122,12 +122,17 @@ FROM ((MH.client cl JOIN MH.charter ch ON cl.client_nbr = ch.client_nbr)
         GROUP BY cl.charter_nbr
             ) 
         hours_cost_table ON ch.charter_nbr = hours_cost_table.charter_nbr)
-WHERE ROUND(hours_cost_table.total_cost, 2) < (select avg(total_cost) from (SELECT cl.charter_nbr, 
+WHERE hours_cost_table.total_cost < (select avg(total_cost) from (SELECT cl.charter_nbr, 
                                                 sum(to_char(cl.cl_ata-cl.cl_atd)*24) as total_hours,
                                                 sum((to_char(cl.cl_ata-cl.cl_atd)*24 * c.charter_cost_per_hour)) as total_cost
                                                 FROM (MH.charter c JOIN MH.charter_leg cl on c.charter_nbr = cl.charter_nbr)
                                                 WHERE cl.cl_ata is not null 
                                                 GROUP BY cl.charter_nbr ) )
+      AND 
+      ch.charter_nbr NOT IN 
+      (SELECT cl2.charter_nbr
+       FROM MH.charter_leg cl2 
+       WHERE cl2.cl_ata IS NULL)
 GROUP BY ch.charter_nbr, ch.client_nbr, cl.client_lname, 
         cl.client_fname, hours_cost_table.total_cost
 ORDER BY hours_cost_table.total_cost DESC;
@@ -138,11 +143,61 @@ ORDER BY hours_cost_table.total_cost DESC;
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
-
+SELECT ch.charter_nbr, 
+       nullif((e.emp_fname || ' '),' ') || e.emp_lname AS PILOTNAME, 
+       nullif((cl.client_fname || ' '),' ') || cl.client_lname AS CLIENTNAME
+FROM (MH.client cl JOIN MH.charter ch ON cl.client_nbr = ch.client_nbr)
+      JOIN
+      MH.employee e ON ch.emp_nbr = e.emp_nbr
+WHERE ch.charter_nbr not in 
+    (SELECT distinct cl.charter_nbr
+     FROM MH.charter_leg cl
+     WHERE cl.cl_etd != cl.cl_atd
+            OR
+           cl.cl_atd is null)
+ORDER BY ch.charter_nbr;
 
 /*
     Q10
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
+--
+--For each client, list the name of their favorite destination location/s and how many times
+--they have visited that destination. The clients favorite destination will be the location/s they
+--visit the most based on completed legs.
+--Show the client number, client full name in one column, the name of the destination location
+--and the number of times the location has been visited by the client.
+SELECT new_table.client_nbr, max(new_table.destination_count)
+FROM
+    (SELECT c.client_nbr, cl.location_nbr_destination, count(cl.location_nbr_destination) as destination_count
+    FROM (MH.charter_leg cl NATURAL JOIN MH.charter c)
+    WHERE cl.cl_ata is not null 
+    GROUP BY c.client_nbr, cl.location_nbr_destination
+    ORDER BY c.client_nbr, cl.location_nbr_destination) new_table
+GROUP BY new_table.client_nbr;
+
+--SELECT new_table.client_nbr, new_table.location_nbr_destination
+--FROM
+--    (SELECT c.client_nbr, cl.location_nbr_destination, count(cl.location_nbr_destination) as destination_count
+--    FROM (MH.charter_leg cl NATURAL JOIN MH.charter c)
+--    WHERE cl.cl_ata is not null 
+--    GROUP BY c.client_nbr, cl.location_nbr_destination
+--    ORDER BY c.client_nbr, cl.location_nbr_destination) new_table
+--WHERE (new_table.client_nbr, new_table.destination_count) in (select new_table.client_nbr, max(new_table.destination_count)
+--                                                                    from new_table
+--                                                                    group by new_table.client_nbr);
+
+
+
+
+SELECT *
+FROM (MH.charter_leg cl NATURAL JOIN MH.charter c)
+WHERE cl.location_nbr_destination = 106 and c.client_nbr = 3;
+
+SELECT *    
+FROM MH.client cl
+ORDER BY cl.client_nbr;
+
+
 
