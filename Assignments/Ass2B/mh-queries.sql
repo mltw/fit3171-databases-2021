@@ -46,7 +46,7 @@ FROM ((MH.charter ch JOIN MH.client cl ON ch.client_nbr = cl.client_nbr)
       JOIN MH.location lc ON (chl.location_nbr_origin = lc.location_nbr
                               OR
                               chl.location_nbr_destination = lc.location_nbr)
-WHERE lc.location_name = 'Mount Doom'
+WHERE upper(lc.location_name) = upper('Mount Doom')
       AND
       (ch.charter_cost_per_hour < 1000 OR ch.charter_special_reqs IS NULL)
 ORDER BY FULLNAME DESC;
@@ -89,13 +89,18 @@ ORDER BY NVL(SUM(h.heli_hrs_flown),0);
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
-SELECT cl.charter_nbr, to_char(cl.cl_atd, 'DD Mon YYYY HH24:MI:SS')
-FROM ((MH.employee e JOIN MH.charter c ON e.emp_nbr = c.emp_nbr)
+SELECT c.charter_nbr, to_char(cl.cl_atd, 'DD Mon YYYY HH24:MI:SS')
+FROM (MH.employee e JOIN MH.charter c ON e.emp_nbr = c.emp_nbr)
        JOIN
-       MH.charter_leg cl ON c.charter_nbr = cl.charter_nbr)
-WHERE e.emp_fname = 'Frodo' AND e.emp_lname = 'Baggins'
+       MH.charter_leg cl ON c.charter_nbr = cl.charter_nbr
+WHERE upper(e.emp_fname) = upper('Frodo') AND upper(e.emp_lname) = upper('Baggins')
       AND
       cl.cl_leg_nbr = 1
+      AND 
+      cl.charter_nbr NOT IN 
+      (SELECT cl2.charter_nbr
+        FROM MH.charter_leg cl2 
+        WHERE cl2.cl_ata IS NULL)
 ORDER BY cl.cl_atd DESC;
 
 
@@ -104,19 +109,29 @@ ORDER BY cl.cl_atd DESC;
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
-
-SELECT ch.charter_nbr, ch.client_nbr, NVL(cl.client_lname, '-'), NVL(cl.client_fname, '-'),
-        ((to_char(chl.cl_ata, 'HH') - to_char(chl.cl_atd, 'HH')) * ch.charter_cost_per_hour) AS "TOTALCHARTERCOST"
---select * 
+SELECT ch.charter_nbr, ch.client_nbr, NVL(cl.client_lname, '-') as CLIENT_LNAME , 
+        NVL(cl.client_fname, '-') as CLIENT_FNAME,
+        lpad(to_char(hours_cost_table.total_cost, '$990.99'),17,' ') AS TOTALCHARTERCOST
 FROM ((MH.client cl JOIN MH.charter ch ON cl.client_nbr = ch.client_nbr)
-       JOIN
-       MH.charter_leg chl ON ch.charter_nbr = chl.charter_nbr)
-where ((to_char(chl.cl_ata, 'HH') - to_char(chl.cl_atd, 'HH')) * ch.charter_cost_per_hour) 
-        <
---        AVG((to_char(chl.cl_ata, 'HH') - to_char(chl.cl_atd, 'HH')) * ch.charter_cost_per_hour) ;   
-        any(select avg((to_char(chl.cl_ata, 'HH') - to_char(chl.cl_atd, 'HH')) * ch.charter_cost_per_hour) 
-        from (MH.charter_leg chl JOIN MH.charter ch on ch.charter_nbr = chl.charter_nbr)
-        GROUP BY ch.charter_nbr);
+        JOIN
+        (SELECT cl.charter_nbr, 
+                sum(to_char(cl.cl_ata-cl.cl_atd)*24) as total_hours,
+                sum((to_char(cl.cl_ata-cl.cl_atd)*24 * c.charter_cost_per_hour)) as total_cost
+        FROM (MH.charter c JOIN MH.charter_leg cl on c.charter_nbr = cl.charter_nbr)
+        WHERE cl.cl_ata is not null 
+        GROUP BY cl.charter_nbr
+            ) 
+        hours_cost_table ON ch.charter_nbr = hours_cost_table.charter_nbr)
+WHERE ROUND(hours_cost_table.total_cost, 2) < (select avg(total_cost) from (SELECT cl.charter_nbr, 
+                                                sum(to_char(cl.cl_ata-cl.cl_atd)*24) as total_hours,
+                                                sum((to_char(cl.cl_ata-cl.cl_atd)*24 * c.charter_cost_per_hour)) as total_cost
+                                                FROM (MH.charter c JOIN MH.charter_leg cl on c.charter_nbr = cl.charter_nbr)
+                                                WHERE cl.cl_ata is not null 
+                                                GROUP BY cl.charter_nbr ) )
+GROUP BY ch.charter_nbr, ch.client_nbr, cl.client_lname, 
+        cl.client_fname, hours_cost_table.total_cost
+ORDER BY hours_cost_table.total_cost DESC;
+
 
 /*
     Q9
