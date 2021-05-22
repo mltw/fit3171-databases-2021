@@ -23,6 +23,7 @@ FROM (MH.endorsement es JOIN MH.employee e ON es.emp_nbr = e.emp_nbr)
 WHERE months_between(es.end_last_annual_review, '31-MAR-2020') > 0
 ORDER BY es.end_last_annual_review;
 
+
 /*
     Q2
 */
@@ -32,6 +33,7 @@ SELECT ch.charter_nbr, ch.client_nbr, cl.client_lname, cl.client_fname, ch.chart
 FROM (MH.charter ch JOIN MH.client cl ON ch.client_nbr = cl.client_nbr)
 WHERE ch.charter_special_reqs IS NOT NULL
 ORDER BY ch.charter_nbr;
+
 
 /*
     Q3
@@ -51,6 +53,7 @@ WHERE upper(lc.location_name) = upper('Mount Doom')
       (ch.charter_cost_per_hour < 1000 OR ch.charter_special_reqs IS NULL)
 ORDER BY FULLNAME DESC;
 
+
 /*
     Q4
 */
@@ -62,6 +65,7 @@ GROUP BY ht.ht_nbr, ht.ht_name
 HAVING count(h.heli_callsign) >= 2
 ORDER BY count(h.heli_callsign) DESC;
 
+
 /*
     Q5
 */
@@ -72,6 +76,7 @@ FROM (MH.charter_leg cl LEFT OUTER JOIN MH.location l ON cl.location_nbr_origin 
 GROUP BY cl.location_nbr_origin, l.location_name
 HAVING count(cl.location_nbr_origin) > 1
 ORDER BY count(cl.location_nbr_origin);
+
 
 /*
     Q6
@@ -157,47 +162,42 @@ WHERE ch.charter_nbr not in
            cl.cl_atd is null)
 ORDER BY ch.charter_nbr;
 
+
 /*
     Q10
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
---
---For each client, list the name of their favorite destination location/s and how many times
---they have visited that destination. The clients favorite destination will be the location/s they
---visit the most based on completed legs.
---Show the client number, client full name in one column, the name of the destination location
---and the number of times the location has been visited by the client.
-SELECT new_table.client_nbr, max(new_table.destination_count)
-FROM
-    (SELECT c.client_nbr, cl.location_nbr_destination, count(cl.location_nbr_destination) as destination_count
-    FROM (MH.charter_leg cl NATURAL JOIN MH.charter c)
-    WHERE cl.cl_ata is not null 
-    GROUP BY c.client_nbr, cl.location_nbr_destination
-    ORDER BY c.client_nbr, cl.location_nbr_destination) new_table
-GROUP BY new_table.client_nbr;
-
---SELECT new_table.client_nbr, new_table.location_nbr_destination
---FROM
---    (SELECT c.client_nbr, cl.location_nbr_destination, count(cl.location_nbr_destination) as destination_count
---    FROM (MH.charter_leg cl NATURAL JOIN MH.charter c)
---    WHERE cl.cl_ata is not null 
---    GROUP BY c.client_nbr, cl.location_nbr_destination
---    ORDER BY c.client_nbr, cl.location_nbr_destination) new_table
---WHERE (new_table.client_nbr, new_table.destination_count) in (select new_table.client_nbr, max(new_table.destination_count)
---                                                                    from new_table
---                                                                    group by new_table.client_nbr);
-
-
-
-
-SELECT *
-FROM (MH.charter_leg cl NATURAL JOIN MH.charter c)
-WHERE cl.location_nbr_destination = 106 and c.client_nbr = 3;
-
-SELECT *    
-FROM MH.client cl
-ORDER BY cl.client_nbr;
-
-
-
+SELECT client_nbr,  
+       nullif((client_fname || ' '),' ') || client_lname AS CLIENTNAME,
+       location_name,
+       destination_count
+FROM MH.location natural join 
+     (
+     MH.client natural join 
+        (
+        SELECT * 
+        FROM 
+        (
+            (SELECT c.client_nbr, cl.location_nbr_destination, count(cl.location_nbr_destination) as destination_count
+             FROM (MH.charter_leg cl NATURAL JOIN MH.charter c)
+             WHERE cl.cl_ata is not null 
+             GROUP BY c.client_nbr, cl.location_nbr_destination
+             ORDER BY c.client_nbr, cl.location_nbr_destination) new_table
+        )
+        WHERE (new_table.client_nbr, new_table.destination_count) in 
+            (SELECT new_table.client_nbr, max(new_table.destination_count)
+             FROM
+                (SELECT c.client_nbr, cl.location_nbr_destination, count(cl.location_nbr_destination) as destination_count
+                 FROM (MH.charter_leg cl NATURAL JOIN MH.charter c)
+                 WHERE cl.cl_ata is not null 
+                 GROUP BY c.client_nbr, cl.location_nbr_destination
+                 ORDER BY c.client_nbr, cl.location_nbr_destination) 
+                 new_table
+             GROUP BY new_table.client_nbr
+             )
+         ) 
+         max_table
+     ) 
+WHERE max_table.location_nbr_destination = mh.location.location_nbr
+ORDER BY client_nbr, location_name;
