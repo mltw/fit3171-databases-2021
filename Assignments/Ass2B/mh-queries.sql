@@ -168,13 +168,13 @@ ORDER BY ch.charter_nbr;
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
-SELECT client_nbr,  
-       nullif((client_fname || ' '),' ') || client_lname AS CLIENTNAME,
-       location_name,
-       destination_count
-FROM MH.location natural join 
+SELECT cli.client_nbr,  
+       nullif((cli.client_fname || ' '),' ') || cli.client_lname AS CLIENTNAME,
+       loc.location_name,
+       max_table.destination_count
+FROM MH.location loc join 
      (
-     MH.client natural join 
+     MH.client cli join 
         (
         SELECT * 
         FROM 
@@ -198,6 +198,8 @@ FROM MH.location natural join
              )
          ) 
          max_table
+         ON cli.client_nbr = max_table.client_nbr
      ) 
-WHERE max_table.location_nbr_destination = mh.location.location_nbr
+     ON loc.location_nbr = max_table.location_nbr_destination
+WHERE max_table.location_nbr_destination = loc.location_nbr
 ORDER BY client_nbr, location_name;
