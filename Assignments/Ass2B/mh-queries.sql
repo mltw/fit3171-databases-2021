@@ -29,7 +29,7 @@ ORDER BY es.end_last_annual_review;
 */
 -- PLEASE PLACE REQUIRED SQL STATEMENT FOR THIS PART HERE
 -- ENSURE your query has a semicolon (;) at the end of this answer
-SELECT ch.charter_nbr, ch.client_nbr, cl.client_lname, cl.client_fname, ch.charter_special_reqs
+SELECT ch.charter_nbr, ch.client_nbr, NVL(cl.client_lname,'-'), NVL(cl.client_fname, '-'), ch.charter_special_reqs
 FROM (MH.charter ch JOIN MH.client cl ON ch.client_nbr = cl.client_nbr)
 WHERE ch.charter_special_reqs IS NOT NULL
 ORDER BY ch.charter_nbr;
@@ -45,9 +45,7 @@ SELECT ch.charter_nbr,
         ch.charter_cost_per_hour
 FROM ((MH.charter ch JOIN MH.client cl ON ch.client_nbr = cl.client_nbr)
       JOIN MH.charter_leg chl ON ch.charter_nbr = chl.charter_nbr)
-      JOIN MH.location lc ON (chl.location_nbr_origin = lc.location_nbr
-                              OR
-                              chl.location_nbr_destination = lc.location_nbr)
+      JOIN MH.location lc ON chl.location_nbr_destination = lc.location_nbr
 WHERE upper(lc.location_name) = upper('Mount Doom')
       AND
       (ch.charter_cost_per_hour < 1000 OR ch.charter_special_reqs IS NULL)
