@@ -17,7 +17,7 @@
 */
 /*Please copy your trigger code and any other necessary SQL statements after this line*/
 CREATE OR REPLACE TRIGGER check_ori_dest_location 
-    BEFORE INSERT OR UPDATE ON charter_leg
+    BEFORE INSERT OR UPDATE OF location_nbr_origin, location_nbr_destination ON charter_leg
     FOR EACH ROW
 BEGIN 
     if :old.location_nbr_origin = :new.location_nbr_destination 
@@ -41,7 +41,7 @@ update charter_leg set location_nbr_origin = 101 where cl_leg_nbr = 1 and charte
 -- (when updating destination nbr to be same as origin nbr)
 update charter_leg set location_nbr_destination = 100 where cl_leg_nbr = 1 and charter_nbr = 1;
 
--- (when inserting a both origin and destination same nbr)
+-- (when inserting a both origin and destination same number location)
 insert into charter_leg values
 (4,
  1,
@@ -65,7 +65,7 @@ rollback;
 */
 /*Please copy your trigger code and any other necessary SQL statements after this line*/
 CREATE OR REPLACE TRIGGER check_charter_cost_seats_num
-    BEFORE INSERT OR UPDATE ON charter
+    BEFORE INSERT OR UPDATE OF charter_cost_per_hour, charter_nbr_passengers ON charter
     FOR EACH ROW
 DECLARE heli_num helicopter.ht_nbr%type;
         heli_cost_per_hour helicopter_type.ht_cost_per_hour%type;
@@ -73,7 +73,7 @@ DECLARE heli_num helicopter.ht_nbr%type;
 BEGIN
     SELECT ht_nbr INTO heli_num
     FROM helicopter 
-    WHERE heli_callsign = :old.heli_callsign;
+    WHERE heli_callsign = :new.heli_callsign;
     
     SELECT ht_cost_per_hour INTO heli_cost_per_hour
     FROM helicopter_type
@@ -140,7 +140,7 @@ BEGIN
     SET
         heli_hrs_flown = hours_flown
     WHERE
-        heli_callsign = (select heli_callsign from charter ch where ch.charter_nbr = :old.charter_nbr);
+        heli_callsign = (select heli_callsign from charter ch where ch.charter_nbr = :new.charter_nbr);
 
 END;
 /
