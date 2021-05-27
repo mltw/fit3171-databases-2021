@@ -31,7 +31,7 @@ END;
 /
 
 -- Test Harness
--- display before value
+-- display before values
 select * from charter_leg;
 
 -- test trigger
@@ -53,8 +53,9 @@ insert into charter_leg values
  103
  );
  
--- display after value
+-- display after values
 select * from charter_leg;
+
 --close transaction
 rollback;
 
@@ -66,59 +67,67 @@ rollback;
 CREATE OR REPLACE TRIGGER check_charter_cost_seats_num
     BEFORE INSERT OR UPDATE ON charter
     FOR EACH ROW
-DECLARE
-    heli_num helicopter.ht_nbr%type;
---    heli_num_of_seats NUMBER(2);
+DECLARE heli_num helicopter.ht_nbr%type;
+        heli_cost_per_hour helicopter_type.ht_cost_per_hour%type;
+        heli_seats helicopter_type.ht_nbr_seats%type;
 BEGIN
     SELECT ht_nbr INTO heli_num
     FROM helicopter 
     WHERE heli_callsign = :old.heli_callsign;
+    
+    SELECT ht_cost_per_hour INTO heli_cost_per_hour
+    FROM helicopter_type
+    WHERE ht_nbr = heli_num;
+    
+    SELECT ht_nbr_seats INTO heli_seats
+    FROM helicopter_type
+    WHERE ht_nbr = heli_num;
 
-    if :new.charter_cost_per_hour < (SELECT ht_cost_per_hour 
-                                     FROM helicopter_type ht
-                                     WHERE ht.ht_nbr = heli_num)
-    
-    
-    
---    (select ht_cost_per_hour
---                                   from (helicopter h join helicopter_type ht on h.ht_nbr = ht.ht_nbr)
---                                   where h.heli_callsign = :old.heli_callsign)
-                                   
---                                   select ht_cost_per_hour 
---from (helicopter h join helicopter_type ht on h.ht_nbr = ht.ht_nbr)
---where h.heli_callsign = 'BI-BAC';
-                                   
---                                   (select AVG(ENROL_MARK) from ENROLMENT where stu_nbr = student.stu_nbr
---        OR
---       :new.charter_nbr_passengers > (select ht.ht_nbr_seats 
---                                    from (helicopter_type ht join helicopter h on ht.ht_nbr = h.ht_nbr)
---                                      where charter.heli_callsign = h.heli_callsign)
-        THEN
-        raise_application_error(-20000, 'Charter cost per hour must >= helicopter''s, and 
-                                         num of passengers must <= charter num. of seats');
+    if :new.charter_cost_per_hour <  heli_cost_per_hour THEN
+        raise_application_error(-20000, 'Charter''s cost per hour must >= helicopter''s cost per hour');
+    elsif :new.charter_nbr_passengers > heli_seats THEN
+        raise_application_error(-20000, 'Chater''s max. number of passengers must <= helicopter''s number of seats');
+
     end if;
 END;
 /
-    
 
+-- Test Harness
+-- display before values
+select  h.heli_callsign, ht.ht_nbr, ht.ht_cost_per_hour, c.charter_nbr, c.charter_cost_per_hour, ht.ht_nbr_seats, c.charter_nbr_passengers
+from (charter c join helicopter h on c.heli_callsign = h.heli_callsign)
+      join helicopter_type ht on h.ht_nbr = ht.ht_nbr; 
 
+-- test trigger
+-- (when updating charter cost per hour to be < helicopter cost per hour)
+UPDATE charter
+SET charter_cost_per_hour = 100
+WHERE charter_nbr = 1;
 
+-- (when updating charter's number of passengers to be > helicopter's number of seats)
+UPDATE charter
+SET charter_nbr_passengers = 5
+WHERE charter_nbr = 1;
 
+-- display after values
+select  h.heli_callsign, ht.ht_nbr, ht.ht_cost_per_hour, c.charter_nbr, c.charter_cost_per_hour, ht.ht_nbr_seats, c.charter_nbr_passengers
+from (charter c join helicopter h on c.heli_callsign = h.heli_callsign)
+      join helicopter_type ht on h.ht_nbr = ht.ht_nbr; 
 
-
-
+-- close transaction
+rollback;
 
 /* 
     Q3
 */
 /*Please copy your trigger code and any other necessary SQL statements after this line*/
 CREATE OR REPLACE TRIGGER check_heli_hours_flown
-    BEFORE UPDATE ON charter_leg
+    BEFORE UPDATE OF cl_atd, cl_ata ON charter_leg
     FOR EACH ROW
 DECLARE 
     hours_flown helicopter.heli_hrs_flown%type;
 BEGIN
-    if :old.cl_ata is not null THEN
+    if :old.cl_ata is not null and :old.cl_atd is not null THEN
         raise_application_error(-20000, 'Actual time of departure and arrival have been entered, can''t be updated again.');
     elsif ((:new.cl_ata - :new.cl_atd) *24) <= 0 THEN
         raise_application_error(-20000, 'Arrival time must be later than departure time.');
@@ -136,8 +145,10 @@ BEGIN
 END;
 /
 
+-- Test Harness
 -- display before values
 select * from charter_leg;
+select * from helicopter;
 
 -- test trigger
 -- (when updating the departure time to be later than arrival time)
@@ -173,5 +184,6 @@ WHERE
 -- display after values
 select * from charter_leg;
 select * from helicopter;
+
 --close transaction
 rollback;
